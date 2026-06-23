@@ -599,13 +599,24 @@ body {
       </div>
 
       <div class="settings-section" style="margin-top:16px">
-        <h2>Fetch Sources</h2>
+        <h2>Cloudflare Worker URL</h2>
         <div class="field">
-          <label>Additional source domains to monitor (one per line)</label>
-          <textarea id="cfg-sources" rows="6" placeholder="wired.com&#10;creativeapplications.net&#10;e-flux.com&#10;eyemagazine.com&#10;theguardian.com/environment&#10;technologyreview.com"></textarea>
-          <div class="field-note">Claude will search for recent articles from these domains relevant to each strand.</div>
+          <label>Worker URL</label>
+          <input type="text" id="cfg-worker-url" placeholder="https://signal-proxy.iamowenwells.workers.dev">
+          <div class="field-note">Your Cloudflare Worker proxies both RSS feeds and the Claude API call.</div>
         </div>
-        <button class="btn btn-fetch" onclick="saveSources()" style="margin-top:6px">Save sources</button>
+        <button class="btn btn-fetch" onclick="saveWorkerUrl()" style="margin-top:6px">Save Worker URL</button>
+      </div>
+
+      <div class="settings-section" style="margin-top:16px">
+        <h2>RSS Feeds</h2>
+        <div class="field">
+          <label>Feeds as JSON array — each entry needs "url" and "source"</label>
+          <textarea id="cfg-feeds" rows="10"></textarea>
+          <div class="field-note">Articles are fetched live from these feeds, so every story has a real, working URL.</div>
+        </div>
+        <button class="btn btn-fetch" onclick="saveFeeds()" style="margin-top:6px">Save feeds</button>
+        <button class="btn btn-undo" onclick="resetFeeds()" style="margin-top:6px;margin-left:6px">Reset to defaults</button>
       </div>
     </div>
   </main>
@@ -660,8 +671,9 @@ function loadSettings() {
   document.getElementById('cfg-github-token').value   = localStorage.getItem('signal_github_token')   || '';
   document.getElementById('cfg-github-repo').value    = localStorage.getItem('signal_github_repo')    || '';
   document.getElementById('cfg-github-branch').value  = localStorage.getItem('signal_github_branch')  || 'main';
-  document.getElementById('cfg-sources').value        = localStorage.getItem('signal_sources')        ||
-    'wired.com\ncreativeapplications.net\ne-flux.com\neyemagazine.com\ntheguardian.com\ntechnologyreview.com\nitsnicetat.com\ncreativereview.co.uk\nfrieze.com\ndezeen.com';
+  document.getElementById('cfg-worker-url').value     = localStorage.getItem('signal_worker_url')     || '';
+  document.getElementById('cfg-feeds').value          = localStorage.getItem('signal_feeds')          ||
+    JSON.stringify(DEFAULT_FEEDS, null, 2);
 }
 
 function saveSettings() {
@@ -672,9 +684,25 @@ function saveSettings() {
   setStatus('Settings saved.', 'success');
 }
 
-function saveSources() {
-  localStorage.setItem('signal_sources', document.getElementById('cfg-sources').value);
-  setStatus('Sources saved.', 'success');
+function saveWorkerUrl() {
+  localStorage.setItem('signal_worker_url', document.getElementById('cfg-worker-url').value.trim());
+  setStatus('Worker URL saved.', 'success');
+}
+
+function saveFeeds() {
+  try {
+    JSON.parse(document.getElementById('cfg-feeds').value); // validate
+    localStorage.setItem('signal_feeds', document.getElementById('cfg-feeds').value);
+    setStatus('Feeds saved.', 'success');
+  } catch {
+    setStatus('Invalid JSON in feeds — check the format.', 'error');
+  }
+}
+
+function resetFeeds() {
+  document.getElementById('cfg-feeds').value = JSON.stringify(DEFAULT_FEEDS, null, 2);
+  localStorage.removeItem('signal_feeds');
+  setStatus('Feeds reset to defaults.', 'success');
 }
 
 // ============================================================
@@ -780,81 +808,133 @@ function loadDraftFromStorage() {
 }
 
 // ============================================================
-// FETCH NEW CONTENT VIA CLAUDE API
+// RSS FEEDS
+// Default feeds — user can add more in Settings
+// ============================================================
+const DEFAULT_FEEDS = [
+  { url: 'https://www.wired.com/feed/rss',                        source: 'Wired' },
+  { url: 'https://www.theguardian.com/environment/rss',           source: 'The Guardian' },
+  { url: 'https://www.technologyreview.com/feed/',                source: 'MIT Tech Review' },
+  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',        source: "It's Nice That" },
+  { url: 'https://www.dezeen.com/feed/',                          source: 'Dezeen' },
+  { url: 'https://www.creativereview.co.uk/feed/',                source: 'Creative Review' },
+  { url: 'https://e-flux.com/rss/',                               source: 'e-flux' },
+  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss', source: 'The Guardian AI' },
+];
+
+function getFeeds() {
+  const custom = localStorage.getItem('signal_feeds');
+  if (custom) {
+    try { return JSON.parse(custom); } catch {}
+  }
+  return DEFAULT_FEEDS;
+}
+
+// ============================================================
+// FETCH NEW CONTENT VIA RSS + CLAUDE
 // ============================================================
 async function fetchNewContent() {
-  const apiKey = localStorage.getItem('signal_anthropic_key');
+  const apiKey     = localStorage.getItem('signal_anthropic_key');
+  const workerUrl  = localStorage.getItem('signal_worker_url');
+
   if (!apiKey) {
     setStatus('Add your Anthropic API key in Settings first.', 'error');
     switchTab('settings', document.querySelector('[data-strand="settings"]'));
     return;
   }
+  if (!workerUrl) {
+    setStatus('Add your Cloudflare Worker URL in Settings first.', 'error');
+    switchTab('settings', document.querySelector('[data-strand="settings"]'));
+    return;
+  }
 
-  const sources = (localStorage.getItem('signal_sources') || '').split('\n').filter(Boolean).join(', ');
-
-  setStatus('Fetching… asking Claude to find this week\'s stories. This takes 20–30 seconds.', 'loading');
+  setStatus('Step 1/2 — Fetching RSS feeds…', 'loading');
   document.getElementById('btn-fetch').disabled = true;
 
-  const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal. 
-Your task: find and summarise 4–5 recent, real articles or stories (from the past 2 weeks) for each of three editorial strands.
+  try {
+    // ── Step 1: fetch all RSS feeds via the Worker proxy ──
+    const feeds  = getFeeds();
+    const results = await Promise.allSettled(
+      feeds.map(feed =>
+        fetch(`${workerUrl}?action=rss&url=${encodeURIComponent(feed.url)}`)
+          .then(r => r.json())
+          .then(data => ({ source: feed.source, items: data.items || [] }))
+      )
+    );
 
-Preferred sources include: ${sources}
+    // Collect all items that loaded successfully
+    const allItems = [];
+    results.forEach(r => {
+      if (r.status === 'fulfilled') {
+        r.value.items.slice(0, 8).forEach(item => {
+          allItems.push({
+            source:  r.value.source,
+            title:   item.title   || '',
+            summary: item.summary || item.description || '',
+            url:     item.url     || item.link        || '',
+            date:    item.date    || '',
+          });
+        });
+      }
+    });
 
-The three strands are:
+    if (allItems.length === 0) {
+      throw new Error('No articles retrieved from feeds. Check your Worker URL in Settings.');
+    }
+
+    setStatus(`Step 2/2 — Categorising ${allItems.length} articles with Claude…`, 'loading');
+
+    // ── Step 2: send real articles to Claude for categorisation ──
+    const articleList = allItems.map((item, i) =>
+      `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
+    ).join('\n\n');
+
+    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal.
+
+Below is a list of real articles fetched live from RSS feeds. Your task is to:
+1. Select the most relevant articles for each of the three strands (3–5 per strand)
+2. Write a concise 2-sentence editorial summary for each, written for BA design students
+3. Return ONLY articles that genuinely fit a strand — do not force articles that don't fit
+4. Preserve the exact URL from the source data — never modify or invent URLs
+
+THE THREE STRANDS:
 
 A — AI & Industry
-Stories about AI tools entering creative professional workflows, studios adopting or resisting AI, industry displacement, new AI-powered design/motion/branding tools, effects on freelance and studio economics.
+AI tools entering creative professional workflows, studios adopting or resisting AI, industry displacement, new AI-powered design/motion/branding tools, effects on freelance and studio economics.
 
 B — Environmental cost
-Stories about the energy, water, and carbon footprint of AI infrastructure. Data centres, training runs, inference costs, tech company sustainability claims vs reality.
+Energy, water, and carbon footprint of AI infrastructure. Data centres, training runs, inference costs, tech company sustainability claims vs reality.
 
-C — Creative opposition  
-Artists, designers, writers, and educators who are critically engaging with, working against, or deliberately sidestepping AI. Counter-movements, slow-tech practices, critical essays, conceptual projects that interrogate AI aesthetics or labour.
+C — Creative opposition
+Artists, designers, writers, educators critically engaging with, working against, or deliberately sidestepping AI. Counter-movements, slow-tech practices, critical essays, conceptual projects interrogating AI aesthetics or labour.
 
-For each story, provide:
-- source: publication name (short, e.g. "Wired", "e-flux", "The Guardian")
-- headline: the actual or a realistic representative headline (under 15 words)
-- summary: 2 sentence editorial summary, written for BA design students (under 60 words)
-- url: a plausible or actual URL if you know it, otherwise omit
-- date: approximate date like "16 Jun"
+ARTICLES TO CATEGORISE:
+${articleList}
 
-Respond ONLY with valid JSON in exactly this structure, no preamble, no markdown fences:
+Respond ONLY with valid JSON, no preamble, no markdown fences:
 {
-  "a": [
-    {"source":"...","headline":"...","summary":"...","url":"...","date":"..."},
-    ...
-  ],
+  "a": [{"source":"...","headline":"...","summary":"...","url":"EXACT URL FROM ABOVE","date":"..."}],
   "b": [...],
   "c": [...]
 }`;
 
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const claudeRes = await fetch(`${workerUrl}?action=claude`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 2000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ apiKey, prompt })
     });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.error?.message || 'API error ' + res.status);
+    if (!claudeRes.ok) {
+      const err = await claudeRes.json().catch(() => ({}));
+      throw new Error(err.error || 'Claude API error ' + claudeRes.status);
     }
 
-    const data  = await res.json();
-    const text  = data.content.map(b => b.text || '').join('');
+    const claudeData = await claudeRes.json();
+    const text  = claudeData.text || '';
     const clean = text.replace(/```json|```/g, '').trim();
     const parsed = JSON.parse(clean);
 
-    // Mark all new items as pending
+    // Mark all as pending
     ['a','b','c'].forEach(s => {
       parsed[s] = (parsed[s] || []).map(item => ({ ...item, status: 'pending' }));
     });
@@ -863,7 +943,9 @@ Respond ONLY with valid JSON in exactly this structure, no preamble, no markdown
     draft = parsed;
     saveDraftToStorage();
     renderAll();
-    setStatus('Fetched ' + ([...parsed.a,...parsed.b,...parsed.c].length) + ' stories. Review and approve before publishing.', 'success');
+
+    const total = [...(parsed.a||[]),...(parsed.b||[]),...(parsed.c||[])].length;
+    setStatus(`Fetched ${total} real articles from RSS feeds. All have working links. Review and approve before publishing.`, 'success');
 
   } catch (e) {
     setStatus('Fetch failed: ' + e.message, 'error');
