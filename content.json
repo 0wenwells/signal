@@ -1,72 +1,113 @@
 {
-  "lastUpdated": "2026-06-23T00:00:00.000Z",
+  "lastUpdated": "2026-06-23T17:02:52.461Z",
   "a": [
     {
-      "source": "Creative Review",
-      "headline": "The brief is dead. Long live the brief.",
-      "summary": "With clients now generating rough comps via Midjourney before briefing agencies, the traditional project intake process is being renegotiated across studios large and small. The implications for junior designers entering the industry are significant.",
-      "url": "",
-      "date": "15 Jun",
+      "source": "Wired",
+      "headline": "Adobe Adds Generative AI Video Tools Directly Into Premiere Pro",
+      "summary": "Adobe has integrated Firefly-powered generative video features into Premiere Pro, allowing editors to extend clips, fill gaps, and generate B-roll from text prompts. The update signals a major shift in professional post-production workflows, raising questions about the future role of motion designers and video editors.",
+      "date": "14 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "The Guardian",
+      "headline": "Canva's AI Expansion Threatens Freelance Graphic Designers' Livelihoods",
+      "summary": "Canva's aggressive rollout of AI-powered design automation tools is being cited by freelancers as a direct threat to entry-level and mid-tier design work. Industry observers note that platforms democratising design through AI are simultaneously compressing the market for professional creative labour.",
+      "date": "11 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Bloomberg",
+      "headline": "Hollywood Studios Are Quietly Replacing Concept Artists With AI Tools",
+      "summary": "Several major Hollywood production houses are reducing concept art departments in favour of AI image generation tools during pre-production phases. Artists' unions are pushing back, arguing the move undermines creative quality and eliminates entry-level pathways into the industry.",
+      "date": "10 Jun",
       "status": "approved"
     },
     {
       "source": "It's Nice That",
-      "headline": "Motion studios split on AI: adopt early or protect craft",
-      "summary": "A growing divide is emerging inside mid-size motion studios — younger artists pushing for AI-assisted workflows while senior directors resist what they describe as a loss of authorial control. Neither position is straightforward.",
-      "url": "",
-      "date": "12 Jun",
+      "headline": "Pentagram Partners Debate Whether AI Can Ever Replace Strategic Design Thinking",
+      "summary": "A candid internal discussion at Pentagram, reported by It's Nice That, reveals senior partners are divided on how deeply AI should be embedded in branding and identity work. While some see generative tools as useful for rapid iteration, others argue that strategic thinking and cultural nuance remain irreducibly human.",
+      "date": "13 Jun",
       "status": "approved"
     },
     {
-      "source": "Dezeen",
-      "headline": "AI-generated brand identities flooding design procurement portals",
-      "summary": "Procurement platforms report a sharp rise in AI-generated brand work listed at sub-£100 price points, compressing fees across the sector. Mid-weight studios are feeling the pressure most acutely.",
-      "url": "",
-      "date": "10 Jun",
+      "source": "Fast Company",
+      "headline": "Midjourney's New Design Tool Takes Direct Aim at Professional Brand Studios",
+      "summary": "Midjourney has announced a suite of design-specific features targeting brand identity and marketing production, moving beyond image generation into territory previously owned by specialist studios. The announcement has prompted anxiety across boutique branding agencies about the commodification of visual identity work.",
+      "date": "9 Jun",
       "status": "approved"
     }
   ],
   "b": [
     {
       "source": "The Guardian",
-      "headline": "AI data centres now consuming more water than entire cities",
-      "summary": "Leaked internal figures suggest cooling infrastructure for large language model training consumed over a billion litres of water in a single quarter. The scale is difficult to visualise — which is itself part of the problem.",
-      "url": "",
-      "date": "17 Jun",
+      "headline": "AI Data Centres Are Pushing US Power Grids to the Brink",
+      "summary": "A new investigation reveals that the rapid buildout of AI data centres across the American South and Midwest is straining electricity infrastructure, forcing utilities to delay the retirement of coal plants. Researchers warn that the energy demand from large language model inference alone could erase years of emissions progress.",
+      "date": "12 Jun",
       "status": "approved"
     },
     {
       "source": "MIT Technology Review",
-      "headline": "The carbon cost of a single image generation — a new estimate",
-      "summary": "Researchers put the energy cost of a Midjourney generation at roughly equivalent to charging a smartphone 15 times. Multiplied across billions of daily requests, the aggregate figures challenge any notion of AI as a light-touch tool.",
-      "url": "",
-      "date": "14 Jun",
+      "headline": "Training a Single AI Model Can Emit as Much Carbon as Five Cars Over Their Lifetimes",
+      "summary": "Updated lifecycle analysis from MIT researchers puts fresh numbers on the carbon cost of frontier AI model training, finding that the largest runs now significantly exceed earlier estimates. The findings complicate tech companies' net-zero pledges, which rarely account transparently for Scope 3 compute emissions.",
+      "date": "8 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Wired",
+      "headline": "Microsoft's Water Consumption Surged 34% as It Scaled AI Infrastructure",
+      "summary": "Microsoft's latest environmental report quietly confirmed a sharp rise in water consumption at its data centres, driven primarily by cooling systems for AI workloads. Critics note the increase directly contradicts the company's public commitment to becoming water-positive by 2030.",
+      "date": "15 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "The Verge",
+      "headline": "Google's Clean Energy Claims Don't Add Up When You Count AI Inference",
+      "summary": "An analysis published this week challenges Google's claim to run on 100% renewable energy, pointing out that real-time AI inference draws power from grids that are far from clean at the hours of peak demand. The piece argues that tech giants are using accounting mechanisms to obscure the true fossil fuel dependency of AI services.",
+      "date": "11 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Bloomberg",
+      "headline": "A New Data Centre Boom Is Threatening Europe's Water-Stressed Regions",
+      "summary": "Bloomberg maps the accelerating construction of hyperscale AI data centres in countries including Spain, the Netherlands, and Ireland, where water stress and grid pressure are already significant. Local communities and environmental groups are beginning to mount legal and political challenges to planning approvals.",
+      "date": "6 Jun",
       "status": "approved"
     }
   ],
   "c": [
     {
       "source": "e-flux",
-      "headline": "Hito Steyerl: we built a hallucination machine and called it intelligence",
-      "summary": "In a new essay, Steyerl argues that generative AI aesthetics represent a form of cultural laundering — recycling the labour of millions of artists while systematically severing credit and provenance. Essential reading for anyone making work with or against these tools.",
-      "url": "",
-      "date": "16 Jun",
+      "headline": "Against Generativity: Notes on Refusal in an Age of Synthetic Images",
+      "summary": "A newly published essay on e-flux argues that the aesthetic of endless generative output represents a form of capitalist realism embedded in image culture, and calls on artists to practise deliberate scarcity and authorial refusal. The piece has circulated widely in art school contexts as a framework for critical practice.",
+      "date": "7 Jun",
       "status": "approved"
     },
     {
       "source": "Eye Magazine",
-      "headline": "Against the prompt: designers returning to hand-set type",
-      "summary": "A loose movement of graphic designers is deliberately retreating to slower, more constrained tools — letterpress, risograph, hand-drawn mark-making — as an explicit counter-position to AI fluency. The constraint is the point.",
-      "url": "",
+      "headline": "The New Luddites: Designers Choosing Analogue Against the AI Tide",
+      "summary": "Eye profiles a loose international network of graphic designers who are consciously returning to letterpress, risograph, and hand-drawn illustration as both aesthetic and political statements against AI-driven production. The feature frames their practice not as nostalgia but as a form of resistance to the deskilling of visual labour.",
+      "date": "10 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Hyperallergic",
+      "headline": "Artist Collective Trains an AI on Rejection Letters to Interrogate Creative Labour",
+      "summary": "A Berlin-based collective has released a project that uses a model trained exclusively on years of arts funding rejection letters to generate new applications, exposing the bureaucratic language that gatekeeps creative work. The project doubles as a critique of both institutional power and the AI systems absorbing its logic.",
       "date": "13 Jun",
       "status": "approved"
     },
     {
+      "source": "The Guardian",
+      "headline": "Writers' Centres Are Building AI-Free Spaces to Protect Human Storytelling",
+      "summary": "A growing number of literary organisations in the UK and Australia are formally designating workshops, residencies, and publications as AI-free zones, positioning human authorship as something requiring active protection. Organisers describe the move as both ethical stance and practical response to the erosion of commissioned writing markets.",
+      "date": "9 Jun",
+      "status": "approved"
+    },
+    {
       "source": "Frieze",
-      "headline": "Holly Herndon encodes grief into a model trained on her own voice",
-      "summary": "Herndon's latest project uses AI not as a generative shortcut but as a memorial practice — training a model exclusively on recordings of her late collaborator to produce music that feels like absence rather than production.",
-      "url": "",
-      "date": "07 Jun",
+      "headline": "Holly Herndon and Mat Dryhurst on Building an Ethical AI Art Practice",
+      "summary": "In a substantial new Frieze interview, Holly Herndon and Mat Dryhurst outline their ongoing work developing consent-based frameworks for AI trained on artists' voices and images. They argue that the problem is not the technology itself but the industry's refusal to build structures of attribution, permission, and compensation.",
+      "date": "5 Jun",
       "status": "approved"
     }
   ]
