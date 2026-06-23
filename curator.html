@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Signal — Curator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   THE SIGNAL — Curator Page
+   ============================================================
+   Edit the :root block to restyle. Shares visual language
+   with index.html but uses a lighter masthead treatment.
+   ============================================================ */
+
+:root {
+  --font-sans:     'DM Sans', system-ui, sans-serif;
+  --font-mono:     'DM Mono', 'Courier New', monospace;
+
+  --c-ink:         #1a1916;
+  --c-paper:       #f5f3ee;
+  --c-mid:         #7a7870;
+  --c-rule:        #d8d5ce;
+  --c-surface:     #eceae4;
+
+  --c-strand-a:    #1a1916;
+  --c-strand-b:    #2d5a3d;
+  --c-strand-c:    #8b2e12;
+
+  --c-approve-bg:  #e8f0ea;
+  --c-approve-fg:  #2d5a3d;
+  --c-reject-fg:   #7a7870;
+
+  --max-width:     900px;
+  --page-padding:  28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+/* ============================================================
+   LOGIN SCREEN
+   ============================================================ */
+
+#login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 340px;
+}
+
+.login-box .pub-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-mid);
+  margin-bottom: 4px;
+}
+
+.login-box h1 {
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.login-box h1 em { font-style: italic; }
+
+.login-box .login-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-mid);
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+
+.login-box input[type="password"] {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 0.5px solid var(--c-rule);
+  background: white;
+  color: var(--c-ink);
+  margin-bottom: 10px;
+  outline: none;
+  border-radius: 2px;
+}
+
+.login-box input[type="password"]:focus {
+  border-color: var(--c-ink);
+}
+
+.btn-primary {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover { opacity: 0.8; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.login-error {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-strand-c);
+  margin-top: 8px;
+  display: none;
+}
+
+/* ============================================================
+   MAIN APP (hidden until logged in)
+   ============================================================ */
+
+#app { display: none; }
+
+/* ============================================================
+   MASTHEAD
+   ============================================================ */
+
+.masthead {
+  border-bottom: 1.5px solid var(--c-ink);
+  padding: 20px 0 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pub-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-mid);
+  margin-bottom: 3px;
+}
+
+.masthead h1 {
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.masthead h1 em { font-style: italic; }
+
+.curator-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-paper);
+  background: var(--c-ink);
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.masthead-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 0.5px solid;
+  background: none;
+  transition: background 0.12s, opacity 0.12s;
+  white-space: nowrap;
+}
+
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-fetch {
+  border-color: var(--c-ink);
+  color: var(--c-ink);
+}
+.btn-fetch:hover:not(:disabled) { background: var(--c-surface); }
+
+.btn-publish {
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border-color: var(--c-ink);
+}
+.btn-publish:hover:not(:disabled) { opacity: 0.8; }
+
+.btn-approve {
+  border-color: var(--c-approve-fg);
+  color: var(--c-approve-fg);
+  font-size: 10px;
+  padding: 4px 10px;
+}
+.btn-approve:hover:not(:disabled) { background: var(--c-approve-bg); }
+
+.btn-reject {
+  border-color: var(--c-rule);
+  color: var(--c-reject-fg);
+  font-size: 10px;
+  padding: 4px 10px;
+}
+.btn-reject:hover:not(:disabled) { background: var(--c-surface); }
+
+.btn-undo {
+  border-color: var(--c-rule);
+  color: var(--c-mid);
+  font-size: 10px;
+  padding: 4px 10px;
+}
+.btn-undo:hover { background: var(--c-surface); }
+
+/* ============================================================
+   STATUS BAR
+   ============================================================ */
+
+.status-bar {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-mid);
+  padding: 10px 0;
+  border-bottom: 0.5px solid var(--c-rule);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 38px;
+  align-items: center;
+}
+
+.status-bar.loading { color: var(--c-mid); }
+.status-bar.error   { color: var(--c-strand-c); }
+.status-bar.success { color: var(--c-strand-b); }
+
+/* ============================================================
+   STRAND NAVIGATION
+   ============================================================ */
+
+.strand-nav {
+  display: flex;
+  border-bottom: 0.5px solid var(--c-rule);
+  margin-top: 0;
+}
+
+.strand-tab {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 11px 20px 11px 0;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -0.5px;
+  color: var(--c-mid);
+  background: none;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.strand-tab:hover { color: var(--c-ink); }
+
+.strand-tab.active {
+  color: var(--strand-color);
+  border-bottom-color: var(--strand-color);
+}
+
+.dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-a { background: var(--c-strand-a); }
+.dot-b { background: var(--c-strand-b); }
+.dot-c { background: var(--c-strand-c); }
+
+.tab-count {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  background: var(--c-surface);
+  padding: 1px 5px;
+  border-radius: 10px;
+  color: var(--c-mid);
+}
+
+/* ============================================================
+   PANELS & ITEMS
+   ============================================================ */
+
+.panel { display: none; padding: 20px 0 48px; }
+.panel.active { display: block; }
+
+.items-list { display: flex; flex-direction: column; }
+
+.item {
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--c-rule);
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 0 14px;
+  align-items: start;
+  transition: opacity 0.2s;
+}
+
+.item.status-rejected { opacity: 0.35; }
+.item.status-approved .item-headline::after {
+  content: ' ✓';
+  font-size: 11px;
+  color: var(--c-approve-fg);
+}
+
+.item-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-mid);
+  padding-top: 2px;
+}
+
+.item-source {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-mid);
+  margin-bottom: 4px;
+}
+
+.item-headline {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  margin-bottom: 5px;
+}
+
+.item-summary {
+  font-size: 13px;
+  color: var(--c-mid);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.item-url {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-mid);
+  word-break: break-all;
+  margin-bottom: 8px;
+}
+
+.item-url a { color: var(--c-mid); }
+
+.item-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.item-meta {
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.item-date {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-mid);
+  white-space: nowrap;
+}
+
+.state-msg {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-mid);
+  padding: 40px 0;
+  letter-spacing: 0.06em;
+}
+
+/* ============================================================
+   SETTINGS PANEL
+   ============================================================ */
+
+.settings-section {
+  margin-top: 24px;
+  padding: 20px;
+  border: 0.5px solid var(--c-rule);
+  border-radius: 2px;
+  background: white;
+}
+
+.settings-section h2 {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mid);
+  margin-bottom: 14px;
+}
+
+.field { margin-bottom: 14px; }
+
+.field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-mid);
+  margin-bottom: 5px;
+  letter-spacing: 0.06em;
+}
+
+.field input[type="text"],
+.field input[type="password"],
+.field textarea {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px 10px;
+  border: 0.5px solid var(--c-rule);
+  background: var(--c-paper);
+  color: var(--c-ink);
+  border-radius: 2px;
+  outline: none;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus { border-color: var(--c-ink); }
+
+.field-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-mid);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  border-top: 1.5px solid var(--c-ink);
+  padding: 12px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-mid);
+  letter-spacing: 0.06em;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  :root { --page-padding: 16px; }
+  .item { grid-template-columns: 32px 1fr; }
+  .item-meta { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     LOGIN SCREEN
+     ============================================================ -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="pub-name">BA Graphic &amp; Media Design</div>
+    <h1>The <em>Signal</em></h1>
+    <div class="login-sub">Curator access</div>
+    <input type="password" id="password-input" placeholder="Enter password"
+      onkeydown="if(event.key==='Enter') doLogin()">
+    <button class="btn-primary" onclick="doLogin()">Enter</button>
+    <div class="login-error" id="login-error">Incorrect password.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MAIN APP
+     ============================================================ -->
+<div id="app">
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <div class="pub-name">BA Graphic &amp; Media Design</div>
+      <h1>The <em>Signal</em> <span class="curator-badge">Curator</span></h1>
+    </div>
+    <div class="masthead-actions">
+      <button class="btn btn-fetch" id="btn-fetch" onclick="fetchNewContent()">↻ Fetch this week</button>
+      <button class="btn btn-publish" id="btn-publish" onclick="publishContent()" disabled>Publish approved →</button>
+    </div>
+  </header>
+
+  <div class="status-bar" id="status-bar">
+    <span id="status-text">Ready. Fetch new content or load existing draft.</span>
+    <span id="status-counts"></span>
+  </div>
+
+  <nav class="strand-nav">
+    <button class="strand-tab active" data-strand="a" style="--strand-color: var(--c-strand-a)" onclick="switchTab('a',this)">
+      <span class="dot dot-a" aria-hidden="true"></span>AI &amp; industry
+      <span class="tab-count" id="count-a">0</span>
+    </button>
+    <button class="strand-tab" data-strand="b" style="--strand-color: var(--c-strand-b)" onclick="switchTab('b',this)">
+      <span class="dot dot-b" aria-hidden="true"></span>Environmental cost
+      <span class="tab-count" id="count-b">0</span>
+    </button>
+    <button class="strand-tab" data-strand="c" style="--strand-color: var(--c-strand-c)" onclick="switchTab('c',this)">
+      <span class="dot dot-c" aria-hidden="true"></span>Creative opposition
+      <span class="tab-count" id="count-c">0</span>
+    </button>
+    <button class="strand-tab" data-strand="settings" style="--strand-color: var(--c-mid)" onclick="switchTab('settings',this)">
+      ⚙ Settings
+    </button>
+  </nav>
+
+  <main>
+    <div class="panel active" id="panel-a"><div class="items-list" id="list-a"></div></div>
+    <div class="panel"        id="panel-b"><div class="items-list" id="list-b"></div></div>
+    <div class="panel"        id="panel-c"><div class="items-list" id="list-c"></div></div>
+
+    <div class="panel" id="panel-settings">
+      <div class="settings-section">
+        <h2>API Keys</h2>
+        <div class="field">
+          <label>Anthropic API Key (for weekly fetch)</label>
+          <input type="password" id="cfg-anthropic-key" placeholder="sk-ant-…">
+          <div class="field-note">Stored in your browser only. Never sent anywhere except api.anthropic.com.</div>
+        </div>
+        <div class="field">
+          <label>GitHub Personal Access Token</label>
+          <input type="password" id="cfg-github-token" placeholder="ghp_…">
+          <div class="field-note">Needs repo scope. Used to publish content.json to your repository.</div>
+        </div>
+        <div class="field">
+          <label>GitHub Repository (owner/repo)</label>
+          <input type="text" id="cfg-github-repo" placeholder="yourname/the-signal">
+        </div>
+        <div class="field">
+          <label>GitHub Branch</label>
+          <input type="text" id="cfg-github-branch" placeholder="main">
+        </div>
+        <button class="btn btn-fetch" onclick="saveSettings()" style="margin-top:6px">Save settings</button>
+      </div>
+
+      <div class="settings-section" style="margin-top:16px">
+        <h2>Curator Password</h2>
+        <div class="field">
+          <label>Change password</label>
+          <input type="password" id="cfg-new-password" placeholder="New password">
+        </div>
+        <button class="btn btn-fetch" onclick="changePassword()" style="margin-top:6px">Update password</button>
+        <div class="field-note" style="margin-top:8px">Password is stored in your browser's localStorage.</div>
+      </div>
+
+      <div class="settings-section" style="margin-top:16px">
+        <h2>Fetch Sources</h2>
+        <div class="field">
+          <label>Additional source domains to monitor (one per line)</label>
+          <textarea id="cfg-sources" rows="6" placeholder="wired.com&#10;creativeapplications.net&#10;e-flux.com&#10;eyemagazine.com&#10;theguardian.com/environment&#10;technologyreview.com"></textarea>
+          <div class="field-note">Claude will search for recent articles from these domains relevant to each strand.</div>
+        </div>
+        <button class="btn btn-fetch" onclick="saveSources()" style="margin-top:6px">Save sources</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-note">The Signal — Curator Interface</span>
+    <span class="footer-note"><a href="index.html" target="_blank" style="color:var(--c-mid)">View student page ↗</a></span>
+  </footer>
+
+</div>
+</div>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+let draft = { a: [], b: [], c: [], lastUpdated: null };
+
+// ============================================================
+// PASSWORD / LOGIN
+// ============================================================
+const DEFAULT_PASSWORD = 'signal2024';
+
+function getPassword() {
+  return localStorage.getItem('signal_password') || DEFAULT_PASSWORD;
+}
+
+function doLogin() {
+  const input = document.getElementById('password-input').value;
+  if (input === getPassword()) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    loadSettings();
+    loadDraftFromStorage();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+  }
+}
+
+function changePassword() {
+  const np = document.getElementById('cfg-new-password').value.trim();
+  if (!np) return alert('Enter a new password.');
+  localStorage.setItem('signal_password', np);
+  alert('Password updated.');
+}
+
+// ============================================================
+// SETTINGS
+// ============================================================
+function loadSettings() {
+  document.getElementById('cfg-anthropic-key').value  = localStorage.getItem('signal_anthropic_key')  || '';
+  document.getElementById('cfg-github-token').value   = localStorage.getItem('signal_github_token')   || '';
+  document.getElementById('cfg-github-repo').value    = localStorage.getItem('signal_github_repo')    || '';
+  document.getElementById('cfg-github-branch').value  = localStorage.getItem('signal_github_branch')  || 'main';
+  document.getElementById('cfg-sources').value        = localStorage.getItem('signal_sources')        ||
+    'wired.com\ncreativeapplications.net\ne-flux.com\neyemagazine.com\ntheguardian.com\ntechnologyreview.com\nitsnicetat.com\ncreativereview.co.uk\nfrieze.com\ndezeen.com';
+}
+
+function saveSettings() {
+  localStorage.setItem('signal_anthropic_key', document.getElementById('cfg-anthropic-key').value.trim());
+  localStorage.setItem('signal_github_token',  document.getElementById('cfg-github-token').value.trim());
+  localStorage.setItem('signal_github_repo',   document.getElementById('cfg-github-repo').value.trim());
+  localStorage.setItem('signal_github_branch', document.getElementById('cfg-github-branch').value.trim() || 'main');
+  setStatus('Settings saved.', 'success');
+}
+
+function saveSources() {
+  localStorage.setItem('signal_sources', document.getElementById('cfg-sources').value);
+  setStatus('Sources saved.', 'success');
+}
+
+// ============================================================
+// STATUS
+// ============================================================
+function setStatus(msg, type = '') {
+  const bar = document.getElementById('status-bar');
+  bar.className = 'status-bar ' + type;
+  document.getElementById('status-text').textContent = msg;
+  updateCounts();
+}
+
+function updateCounts() {
+  ['a','b','c'].forEach(s => {
+    const items = draft[s] || [];
+    document.getElementById('count-' + s).textContent = items.length;
+  });
+  const all = [...(draft.a||[]), ...(draft.b||[]), ...(draft.c||[])];
+  const approved = all.filter(i => i.status === 'approved').length;
+  const pending  = all.filter(i => i.status === 'pending').length;
+  document.getElementById('status-counts').textContent =
+    approved + ' approved · ' + pending + ' pending';
+  document.getElementById('btn-publish').disabled = approved === 0;
+}
+
+// ============================================================
+// TAB SWITCHING
+// ============================================================
+function switchTab(strand, btn) {
+  document.querySelectorAll('.strand-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + strand).classList.add('active');
+}
+
+// ============================================================
+// RENDER ITEMS
+// ============================================================
+function renderAll() {
+  ['a','b','c'].forEach(renderStrand);
+  updateCounts();
+}
+
+function renderStrand(strand) {
+  const list  = document.getElementById('list-' + strand);
+  const items = draft[strand] || [];
+
+  if (!items.length) {
+    list.innerHTML = '<p class="state-msg">No items yet. Fetch new content to populate this strand.</p>';
+    return;
+  }
+
+  list.innerHTML = items.map((item, i) => `
+    <article class="item status-${item.status}" id="item-${strand}-${i}">
+      <div class="item-num">0${i+1}</div>
+      <div>
+        <div class="item-source">${esc(item.source)}</div>
+        <h2 class="item-headline">${esc(item.headline)}</h2>
+        <p class="item-summary">${esc(item.summary)}</p>
+        ${item.url ? `<div class="item-url"><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.url)}</a></div>` : ''}
+        <div class="item-actions">
+          ${item.status === 'pending' ? `
+            <button class="btn btn-approve" onclick="setStatus_item('${strand}',${i},'approved')">Approve</button>
+            <button class="btn btn-reject"  onclick="setStatus_item('${strand}',${i},'rejected')">Remove</button>
+          ` : `
+            <button class="btn btn-undo" onclick="setStatus_item('${strand}',${i},'pending')">Undo</button>
+          `}
+        </div>
+      </div>
+      <div class="item-meta">
+        <div class="item-date">${esc(item.date)}</div>
+      </div>
+    </article>`).join('');
+}
+
+function setStatus_item(strand, i, status) {
+  draft[strand][i].status = status;
+  saveDraftToStorage();
+  renderStrand(strand);
+  updateCounts();
+}
+
+function esc(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ============================================================
+// DRAFT PERSISTENCE (localStorage)
+// ============================================================
+function saveDraftToStorage() {
+  localStorage.setItem('signal_draft', JSON.stringify(draft));
+}
+
+function loadDraftFromStorage() {
+  const saved = localStorage.getItem('signal_draft');
+  if (saved) {
+    try {
+      draft = JSON.parse(saved);
+      renderAll();
+      setStatus('Draft loaded from last session.', '');
+    } catch {}
+  }
+}
+
+// ============================================================
+// FETCH NEW CONTENT VIA CLAUDE API
+// ============================================================
+async function fetchNewContent() {
+  const apiKey = localStorage.getItem('signal_anthropic_key');
+  if (!apiKey) {
+    setStatus('Add your Anthropic API key in Settings first.', 'error');
+    switchTab('settings', document.querySelector('[data-strand="settings"]'));
+    return;
+  }
+
+  const sources = (localStorage.getItem('signal_sources') || '').split('\n').filter(Boolean).join(', ');
+
+  setStatus('Fetching… asking Claude to find this week\'s stories. This takes 20–30 seconds.', 'loading');
+  document.getElementById('btn-fetch').disabled = true;
+
+  const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal. 
+Your task: find and summarise 4–5 recent, real articles or stories (from the past 2 weeks) for each of three editorial strands.
+
+Preferred sources include: ${sources}
+
+The three strands are:
+
+A — AI & Industry
+Stories about AI tools entering creative professional workflows, studios adopting or resisting AI, industry displacement, new AI-powered design/motion/branding tools, effects on freelance and studio economics.
+
+B — Environmental cost
+Stories about the energy, water, and carbon footprint of AI infrastructure. Data centres, training runs, inference costs, tech company sustainability claims vs reality.
+
+C — Creative opposition  
+Artists, designers, writers, and educators who are critically engaging with, working against, or deliberately sidestepping AI. Counter-movements, slow-tech practices, critical essays, conceptual projects that interrogate AI aesthetics or labour.
+
+For each story, provide:
+- source: publication name (short, e.g. "Wired", "e-flux", "The Guardian")
+- headline: the actual or a realistic representative headline (under 15 words)
+- summary: 2 sentence editorial summary, written for BA design students (under 60 words)
+- url: a plausible or actual URL if you know it, otherwise omit
+- date: approximate date like "16 Jun"
+
+Respond ONLY with valid JSON in exactly this structure, no preamble, no markdown fences:
+{
+  "a": [
+    {"source":"...","headline":"...","summary":"...","url":"...","date":"..."},
+    ...
+  ],
+  "b": [...],
+  "c": [...]
+}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 2000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error?.message || 'API error ' + res.status);
+    }
+
+    const data  = await res.json();
+    const text  = data.content.map(b => b.text || '').join('');
+    const clean = text.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
+
+    // Mark all new items as pending
+    ['a','b','c'].forEach(s => {
+      parsed[s] = (parsed[s] || []).map(item => ({ ...item, status: 'pending' }));
+    });
+
+    parsed.lastUpdated = new Date().toISOString();
+    draft = parsed;
+    saveDraftToStorage();
+    renderAll();
+    setStatus('Fetched ' + ([...parsed.a,...parsed.b,...parsed.c].length) + ' stories. Review and approve before publishing.', 'success');
+
+  } catch (e) {
+    setStatus('Fetch failed: ' + e.message, 'error');
+  } finally {
+    document.getElementById('btn-fetch').disabled = false;
+  }
+}
+
+// ============================================================
+// PUBLISH TO GITHUB
+// ============================================================
+async function publishContent() {
+  const token  = localStorage.getItem('signal_github_token');
+  const repo   = localStorage.getItem('signal_github_repo');
+  const branch = localStorage.getItem('signal_github_branch') || 'main';
+
+  if (!token || !repo) {
+    setStatus('Add your GitHub token and repository in Settings first.', 'error');
+    switchTab('settings', document.querySelector('[data-strand="settings"]'));
+    return;
+  }
+
+  setStatus('Publishing to GitHub…', 'loading');
+  document.getElementById('btn-publish').disabled = true;
+
+  // Build the published content: only approved items, strip status field
+  const toPublish = {
+    lastUpdated: new Date().toISOString(),
+    a: (draft.a||[]).filter(i => i.status === 'approved').map(({status, ...rest}) => ({...rest, status:'approved'})),
+    b: (draft.b||[]).filter(i => i.status === 'approved').map(({status, ...rest}) => ({...rest, status:'approved'})),
+    c: (draft.c||[]).filter(i => i.status === 'approved').map(({status, ...rest}) => ({...rest, status:'approved'}))
+  };
+
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(toPublish, null, 2))));
+  const apiUrl  = `https://api.github.com/repos/${repo}/contents/content.json`;
+
+  try {
+    // Get current SHA (needed for update)
+    let sha = null;
+    const getRes = await fetch(apiUrl + '?ref=' + branch, {
+      headers: { Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' }
+    });
+    if (getRes.ok) {
+      const existing = await getRes.json();
+      sha = existing.sha;
+    }
+
+    const body = {
+      message: 'Update content.json — ' + new Date().toLocaleDateString('en-GB'),
+      content,
+      branch
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        Authorization: 'token ' + token,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!putRes.ok) {
+      const err = await putRes.json().catch(() => ({}));
+      throw new Error(err.message || 'GitHub API error ' + putRes.status);
+    }
+
+    setStatus('Published successfully. Student page will update within 1–2 minutes.', 'success');
+
+  } catch (e) {
+    setStatus('Publish failed: ' + e.message, 'error');
+  } finally {
+    document.getElementById('btn-publish').disabled = false;
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+// Auto-focus password field
+document.getElementById('password-input').focus();
+</script>
+</body>
+</html>

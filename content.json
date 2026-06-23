@@ -1,0 +1,73 @@
+{
+  "lastUpdated": "2026-06-23T00:00:00.000Z",
+  "a": [
+    {
+      "source": "Creative Review",
+      "headline": "The brief is dead. Long live the brief.",
+      "summary": "With clients now generating rough comps via Midjourney before briefing agencies, the traditional project intake process is being renegotiated across studios large and small. The implications for junior designers entering the industry are significant.",
+      "url": "",
+      "date": "15 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "It's Nice That",
+      "headline": "Motion studios split on AI: adopt early or protect craft",
+      "summary": "A growing divide is emerging inside mid-size motion studios — younger artists pushing for AI-assisted workflows while senior directors resist what they describe as a loss of authorial control. Neither position is straightforward.",
+      "url": "",
+      "date": "12 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Dezeen",
+      "headline": "AI-generated brand identities flooding design procurement portals",
+      "summary": "Procurement platforms report a sharp rise in AI-generated brand work listed at sub-£100 price points, compressing fees across the sector. Mid-weight studios are feeling the pressure most acutely.",
+      "url": "",
+      "date": "10 Jun",
+      "status": "approved"
+    }
+  ],
+  "b": [
+    {
+      "source": "The Guardian",
+      "headline": "AI data centres now consuming more water than entire cities",
+      "summary": "Leaked internal figures suggest cooling infrastructure for large language model training consumed over a billion litres of water in a single quarter. The scale is difficult to visualise — which is itself part of the problem.",
+      "url": "",
+      "date": "17 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "MIT Technology Review",
+      "headline": "The carbon cost of a single image generation — a new estimate",
+      "summary": "Researchers put the energy cost of a Midjourney generation at roughly equivalent to charging a smartphone 15 times. Multiplied across billions of daily requests, the aggregate figures challenge any notion of AI as a light-touch tool.",
+      "url": "",
+      "date": "14 Jun",
+      "status": "approved"
+    }
+  ],
+  "c": [
+    {
+      "source": "e-flux",
+      "headline": "Hito Steyerl: we built a hallucination machine and called it intelligence",
+      "summary": "In a new essay, Steyerl argues that generative AI aesthetics represent a form of cultural laundering — recycling the labour of millions of artists while systematically severing credit and provenance. Essential reading for anyone making work with or against these tools.",
+      "url": "",
+      "date": "16 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Eye Magazine",
+      "headline": "Against the prompt: designers returning to hand-set type",
+      "summary": "A loose movement of graphic designers is deliberately retreating to slower, more constrained tools — letterpress, risograph, hand-drawn mark-making — as an explicit counter-position to AI fluency. The constraint is the point.",
+      "url": "",
+      "date": "13 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Frieze",
+      "headline": "Holly Herndon encodes grief into a model trained on her own voice",
+      "summary": "Herndon's latest project uses AI not as a generative shortcut but as a memorial practice — training a model exclusively on recordings of her late collaborator to produce music that feels like absence rather than production.",
+      "url": "",
+      "date": "07 Jun",
+      "status": "approved"
+    }
+  ]
+}
