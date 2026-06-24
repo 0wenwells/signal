@@ -1,28 +1,40 @@
 {
-  "lastUpdated": "2026-06-24T08:51:31.219Z",
+  "lastUpdated": "2026-06-24T10:53:28.895Z",
   "a": [
     {
-      "source": "The Guardian AI",
-      "headline": "AI Michael Caine narrates Odyssey audiobook",
-      "summary": "ElevenLabs has launched an officially licensed AI replica of Michael Caine's voice to narrate a retelling of Homer's Odyssey — a sign that synthetic voice performance is now entering mainstream publishing and media production. As a designer or motion practitioner, this raises urgent questions about the future of creative labour in audio-visual storytelling and where the line between licensed likeness and authentic performance sits.",
-      "url": "https://www.theguardian.com/film/2026/jun/23/youre-only-supposed-to-blow-the-bloody-hooves-off-ai-michael-caine-narrates-odyssey-audiobook",
-      "date": "23 Jun",
+      "source": "It's Nice That",
+      "headline": "What happens when the gap between thinking and making closes?",
+      "summary": "Seth Akkerman and Talia Cotton from studio Instrument examine how design and technology are converging, dissolving traditional discipline boundaries. A timely read for design students navigating a landscape where tools and creative thinking are becoming increasingly inseparable.",
+      "url": "https://www.itsnicethat.com/features/instrument-closing-the-gap-between-thinking-and-making-design-technology-creative-industry-partnership-240626",
+      "image": "",
+      "date": "24 Jun",
       "status": "approved"
     },
     {
       "source": "Motionographer",
       "headline": "TwelveLabs Brings Its Video Understanding Technology Directly to Creators",
-      "summary": "TwelveLabs has released Rodeo, an application-layer product that brings AI video understanding tools directly into creators' hands — a significant step toward AI-assisted editing and synthesis becoming standard in motion design workflows. If you're working in video or motion, this is the kind of tool worth monitoring closely as it signals where production pipelines are heading.",
+      "summary": "TwelveLabs has launched Rodeo, a video understanding tool aimed directly at motion designers and content creators rather than enterprise clients. This signals a broader shift toward AI video analysis becoming a standard part of the motion design workflow.",
       "url": "https://motionographer.com/news/twelvelabs-brings-its-video-understanding-technology-directly-to-creators/",
+      "image": "https://s35726.pcdn.co/wp-content/uploads/2026/06/image-700x391.png",
       "date": "22 Jun",
       "status": "approved"
     },
     {
-      "source": "Dezeen",
-      "headline": "Readers say 'there's no such thing as an AI artist' in this week's Dezeen Debate",
-      "summary": "Dezeen's reader debate around AI-generated renders of Gaudí's speculative New York hotel has sparked a pointed public argument about whether 'AI artist' is a legitimate professional identity. For design students, this debate is directly relevant — it maps the contested territory you'll be entering, where authorship, tool use, and creative credit are all up for negotiation.",
-      "url": "https://www.dezeen.com/2026/06/23/hotel-attraction-renders-gaudi-centenary-dezeen-debate/",
+      "source": "The Guardian AI",
+      "headline": "You're only supposed to blow the bloody hooves off: AI Michael Caine narrates Odyssey audiobook",
+      "summary": "ElevenLabs has produced an officially licensed AI replica of Michael Caine's voice for a new audiobook of Homer's Odyssey, raising fresh questions about voice rights and synthetic performance in creative media. For design and motion students, this is a live case study in how AI voice cloning is reshaping the audio-visual production industry.",
+      "url": "https://www.theguardian.com/film/2026/jun/23/youre-only-supposed-to-blow-the-bloody-hooves-off-ai-michael-caine-narrates-odyssey-audiobook",
+      "image": "https://i.guim.co.uk/img/media/c85fd6712ba98ee93dd81e51bff208806db2da76/1729_12_3475_2784/master/3475.jpg?width=1200&quality=85&auto=format&fit=max",
       "date": "23 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Designboom",
+      "headline": "the digital vernacular: reframing AI as an unexpected ally for local heritage",
+      "summary": "This podcast episode explores how AI tools can be used to preserve and reinterpret local architectural and cultural heritage rather than flatten it into generic global aesthetics. It is a useful counterpoint for design students thinking critically about how generative tools can serve specificity and place.",
+      "url": "https://www.designboom.com/architecture/ai-ally-local-heritage-room-for-dreams-podcast/",
+      "image": "https://www.designboom.com/wp-content/uploads/2026/06/700-thumb-02-500x400-22b08q85r550.jpg",
+      "date": "24 Jun",
       "status": "approved"
     }
   ],
@@ -30,17 +42,10 @@
     {
       "source": "The Guardian AI",
       "headline": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
-      "summary": "A new study warns that AI data centres — the infrastructure powering the generative tools now embedded in design workflows — are critically exposed to the very climate hazards their own emissions are accelerating. For designers using AI image and video tools at scale, this is a stark reminder that every render and generation request has a physical footprint with real environmental consequences.",
+      "summary": "A new study warns that the AI data centres driving the generative tools designers use daily are themselves acutely exposed to the floods, fires, and extreme heat their own emissions are accelerating. This feedback loop between AI infrastructure and climate risk is something every designer relying on cloud-based creative tools should understand.",
       "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
+      "image": "https://i.guim.co.uk/img/media/beeb1b282a4c9873eb541eec6c02f74961e097c3/116_319_2911_2329/master/2911.jpg?width=1200&quality=85&auto=format&fit=max",
       "date": "23 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Grist",
-      "headline": "America's data center backlash is bipartisan — can it stay that way?",
-      "summary": "Growing community opposition to AI data centre construction is now crossing political lines in the US, with residents and local governments pushing back against the land, water, and energy demands of AI infrastructure. As creatives who are increasingly dependent on cloud-based generative tools, it's worth understanding that the backlash against this infrastructure is intensifying — and that political pressure could reshape how and where these tools are hosted.",
-      "url": "https://grist.org/politics/data-center-ai-bipartisan-backlash/",
-      "date": "22 Jun",
       "status": "approved"
     }
   ],
@@ -48,25 +53,28 @@
     {
       "source": "Hyperallergic",
       "headline": "Hundreds of Artists Ask NYC Mayor to Ban AI in Schools",
-      "summary": "Artists including Nan Goldin and Molly Crabapple have signed an open letter urging New York City's mayor to ban AI tools from schools, framing AI adoption as a direct threat to the city's creative future and the development of genuine artistic skill. This is a significant act of collective opposition — and a direct challenge to the narrative that AI in education is neutral or inevitable.",
+      "summary": "Hundreds of New York artists have signed a campaign demanding a two-year moratorium on AI in city schools, arguing that it undermines the development of genuine creative skill and critical thinking in young people. This organised resistance from the arts community is a significant moment of collective pushback worth tracking for any design student.",
       "url": "https://hyperallergic.com/hundreds-of-artists-ask-nyc-mayor-to-ban-ai-in-schools/",
+      "image": "https://storage.ghost.io/c/51/f8/51f871d8-b6be-4a73-b958-0ca4fff0110a/content/images/2026/06/IMG_0179.jpeg",
+      "date": "23 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Dezeen",
+      "headline": "Readers say there's no such thing as an AI artist in this week's Dezeen Debate",
+      "summary": "Dezeen readers responded forcefully to AI-generated renders of a speculative Gaudi building, with many rejecting the label of AI artist entirely and questioning what authorship and creative intent mean in the context of generative imagery. The debate cuts directly to questions of craft, labour, and legitimacy that are central to visual communication practice.",
+      "url": "https://www.dezeen.com/2026/06/23/hotel-attraction-renders-gaudi-centenary-dezeen-debate/",
+      "image": "https://static.dezeen.com/uploads/2026/06/hotel-attraction-gaudi-thierry-lechanteur-architecture-hotels-new-york-ai-render_dezeen_2364_sq-1-411x411.jpg",
       "date": "23 Jun",
       "status": "approved"
     },
     {
       "source": "It's Nice That",
       "headline": "Sick of being ripped off? Raymond Biesinger illustrates a self-defense guide for creatives",
-      "summary": "Illustrator Raymond Biesinger has channelled years of being underpaid and exploited into a book that equips creatives to protect themselves from the industry's worst actors. In a climate where AI is devaluing creative labour and clients are increasingly emboldened to cut corners, this kind of self-advocacy resource feels more necessary than ever.",
+      "summary": "Illustrator Raymond Biesinger has turned his repeated experiences of being exploited by clients into a sharp, illustrated guide to protecting yourself in the creative industry. In an era where AI scraping and unpaid usage of creative work is accelerating, this feels like a timely act of practical resistance.",
       "url": "https://www.itsnicethat.com/articles/raymond-biesinger-nine-times-ive-been-ripped-off-graphic-design-publication-project-240626",
+      "image": "",
       "date": "24 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Print Magazine",
-      "headline": "Maybe What We Need Right Now Is More Art Nouveau",
-      "summary": "This piece argues that TCA Ethera and Art Nouveau's celebration of ornament, nature, and individuality feels like a deliberate counter-position to the flattened, algorithmically averaged aesthetics of the AI era. It's a useful provocation for design students thinking about how historical movements can inform a critical response to digital sameness.",
-      "url": "https://www.printmag.com/type-tuesday/maybe-what-we-need-right-now-is-more-art-nouveau/",
-      "date": "23 Jun",
       "status": "approved"
     }
   ]
