@@ -3,37 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Index — Curator</title>
+<title>index.ai — Curator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 
 /* ============================================================
-   THE SIGNAL — Curator Page
-   ============================================================
-   Edit the :root block to restyle. Shares visual language
-   with index.html but uses a lighter masthead treatment.
+   index.ai — Curator Page
+   Edit :root to restyle
    ============================================================ */
 
 :root {
   --font-sans:     'DM Sans', system-ui, sans-serif;
   --font-mono:     'DM Mono', 'Courier New', monospace;
-
   --c-ink:         #1a1916;
   --c-paper:       #f5f3ee;
   --c-mid:         #7a7870;
   --c-rule:        #d8d5ce;
   --c-surface:     #eceae4;
-
   --c-strand-a:    #1a1916;
   --c-strand-b:    #2d5a3d;
   --c-strand-c:    #8b2e12;
-
   --c-approve-bg:  #e8f0ea;
   --c-approve-fg:  #2d5a3d;
-  --c-reject-fg:   #7a7870;
-
   --max-width:     900px;
   --page-padding:  28px;
 }
@@ -49,16 +42,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.page {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--page-padding);
-}
+.page { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--page-padding); }
 
-/* ============================================================
-   LOGIN SCREEN
-   ============================================================ */
-
+/* LOGIN */
 #login-screen {
   min-height: 100vh;
   display: flex;
@@ -66,9 +52,7 @@ body {
   justify-content: center;
 }
 
-.login-box {
-  width: 340px;
-}
+.login-box { width: 340px; }
 
 .login-box .pub-name {
   font-family: var(--font-mono);
@@ -86,9 +70,7 @@ body {
   margin-bottom: 2px;
 }
 
-.login-box h1 em { font-style: italic; }
-
-.login-box .login-sub {
+.login-sub {
   font-family: var(--font-mono);
   font-size: 10px;
   color: var(--c-mid);
@@ -109,27 +91,7 @@ body {
   border-radius: 2px;
 }
 
-.login-box input[type="password"]:focus {
-  border-color: var(--c-ink);
-}
-
-.btn-primary {
-  width: 100%;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 10px 16px;
-  background: var(--c-ink);
-  color: var(--c-paper);
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: opacity 0.15s;
-}
-
-.btn-primary:hover { opacity: 0.8; }
-.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.login-box input:focus { border-color: var(--c-ink); }
 
 .login-error {
   font-family: var(--font-mono);
@@ -139,16 +101,10 @@ body {
   display: none;
 }
 
-/* ============================================================
-   MAIN APP (hidden until logged in)
-   ============================================================ */
-
+/* APP */
 #app { display: none; }
 
-/* ============================================================
-   MASTHEAD
-   ============================================================ */
-
+/* MASTHEAD */
 .masthead {
   border-bottom: 1.5px solid var(--c-ink);
   padding: 20px 0 14px;
@@ -168,13 +124,7 @@ body {
   margin-bottom: 3px;
 }
 
-.masthead h1 {
-  font-size: 26px;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-
-.masthead h1 em { font-style: italic; }
+.masthead h1 { font-size: 26px; font-weight: 300; letter-spacing: -0.02em; }
 
 .curator-badge {
   font-family: var(--font-mono);
@@ -189,17 +139,9 @@ body {
   vertical-align: middle;
 }
 
-.masthead-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+.masthead-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
-/* ============================================================
-   BUTTONS
-   ============================================================ */
-
+/* BUTTONS */
 .btn {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -215,48 +157,20 @@ body {
 }
 
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-.btn-fetch {
-  border-color: var(--c-ink);
-  color: var(--c-ink);
-}
+.btn-fetch { border-color: var(--c-ink); color: var(--c-ink); }
 .btn-fetch:hover:not(:disabled) { background: var(--c-surface); }
-
-.btn-publish {
-  background: var(--c-ink);
-  color: var(--c-paper);
-  border-color: var(--c-ink);
-}
+.btn-publish { background: var(--c-ink); color: var(--c-paper); border-color: var(--c-ink); }
 .btn-publish:hover:not(:disabled) { opacity: 0.8; }
-
-.btn-approve {
-  border-color: var(--c-approve-fg);
-  color: var(--c-approve-fg);
-  font-size: 10px;
-  padding: 4px 10px;
-}
-.btn-approve:hover:not(:disabled) { background: var(--c-approve-bg); }
-
-.btn-reject {
-  border-color: var(--c-rule);
-  color: var(--c-reject-fg);
-  font-size: 10px;
-  padding: 4px 10px;
-}
-.btn-reject:hover:not(:disabled) { background: var(--c-surface); }
-
-.btn-undo {
-  border-color: var(--c-rule);
-  color: var(--c-mid);
-  font-size: 10px;
-  padding: 4px 10px;
-}
+.btn-primary { width: 100%; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 16px; background: var(--c-ink); color: var(--c-paper); border: none; cursor: pointer; border-radius: 2px; }
+.btn-primary:hover { opacity: 0.8; }
+.btn-approve { border-color: var(--c-approve-fg); color: var(--c-approve-fg); font-size: 10px; padding: 4px 10px; }
+.btn-approve:hover { background: var(--c-approve-bg); }
+.btn-reject { border-color: var(--c-rule); color: var(--c-mid); font-size: 10px; padding: 4px 10px; }
+.btn-reject:hover { background: var(--c-surface); }
+.btn-undo { border-color: var(--c-rule); color: var(--c-mid); font-size: 10px; padding: 4px 10px; }
 .btn-undo:hover { background: var(--c-surface); }
 
-/* ============================================================
-   STATUS BAR
-   ============================================================ */
-
+/* STATUS BAR */
 .status-bar {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -275,15 +189,8 @@ body {
 .status-bar.error   { color: var(--c-strand-c); }
 .status-bar.success { color: var(--c-strand-b); }
 
-/* ============================================================
-   STRAND NAVIGATION
-   ============================================================ */
-
-.strand-nav {
-  display: flex;
-  border-bottom: 0.5px solid var(--c-rule);
-  margin-top: 0;
-}
+/* STRAND NAV */
+.strand-nav { display: flex; border-bottom: 0.5px solid var(--c-rule); }
 
 .strand-tab {
   font-family: var(--font-mono);
@@ -304,33 +211,18 @@ body {
 }
 
 .strand-tab:hover { color: var(--c-ink); }
-
-.strand-tab.active {
-  color: var(--strand-color);
-  border-bottom-color: var(--strand-color);
-}
+.strand-tab.active { color: var(--strand-color); border-bottom-color: var(--strand-color); }
 
 .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .dot-a { background: var(--c-strand-a); }
 .dot-b { background: var(--c-strand-b); }
 .dot-c { background: var(--c-strand-c); }
 
-.tab-count {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  background: var(--c-surface);
-  padding: 1px 5px;
-  border-radius: 10px;
-  color: var(--c-mid);
-}
+.tab-count { font-family: var(--font-mono); font-size: 9px; background: var(--c-surface); padding: 1px 5px; border-radius: 10px; color: var(--c-mid); }
 
-/* ============================================================
-   PANELS & ITEMS
-   ============================================================ */
-
+/* PANELS & ITEMS */
 .panel { display: none; padding: 20px 0 48px; }
 .panel.active { display: block; }
-
 .items-list { display: flex; flex-direction: column; }
 
 .item {
@@ -344,189 +236,46 @@ body {
 }
 
 .item.status-rejected { opacity: 0.35; }
-.item.status-approved .item-headline::after {
-  content: ' ✓';
-  font-size: 11px;
-  color: var(--c-approve-fg);
-}
+.item.status-approved .item-headline::after { content: ' ✓'; font-size: 11px; color: var(--c-approve-fg); }
 
-.item-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--c-mid);
-  padding-top: 2px;
-}
+.item-num { font-family: var(--font-mono); font-size: 11px; color: var(--c-mid); padding-top: 2px; }
 
-.item-source {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--c-mid);
-  margin-bottom: 4px;
-}
+.item-image { width: 100%; margin-bottom: 10px; border-radius: 2px; overflow: hidden; background: var(--c-surface); aspect-ratio: 16/9; }
+.item-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.item-headline {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.35;
-  margin-bottom: 5px;
-}
-
-.item-summary {
-  font-size: 13px;
-  color: var(--c-mid);
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.item-image {
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 2px;
-  overflow: hidden;
-  background: var(--c-surface);
-  aspect-ratio: 16 / 9;
-}
-
-.item-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.item-url {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--c-mid);
-  word-break: break-all;
-  margin-bottom: 8px;
-}
-
+.item-source { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-mid); margin-bottom: 4px; }
+.item-headline { font-size: 15px; font-weight: 400; line-height: 1.35; margin-bottom: 5px; }
+.item-summary { font-size: 13px; color: var(--c-mid); line-height: 1.5; margin-bottom: 8px; }
+.item-url { font-family: var(--font-mono); font-size: 10px; color: var(--c-mid); word-break: break-all; margin-bottom: 8px; }
 .item-url a { color: var(--c-mid); }
-
 .item-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.item-meta { text-align: right; flex-shrink: 0; padding-top: 2px; }
+.item-date { font-family: var(--font-mono); font-size: 10px; color: var(--c-mid); white-space: nowrap; }
 
-.item-meta {
-  text-align: right;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
+.state-msg { font-family: var(--font-mono); font-size: 12px; color: var(--c-mid); padding: 40px 0; letter-spacing: 0.06em; }
 
-.item-date {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--c-mid);
-  white-space: nowrap;
-}
-
-.state-msg {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--c-mid);
-  padding: 40px 0;
-  letter-spacing: 0.06em;
-}
-
-/* ============================================================
-   SETTINGS PANEL
-   ============================================================ */
-
-.settings-section {
-  margin-top: 24px;
-  padding: 20px;
-  border: 0.5px solid var(--c-rule);
-  border-radius: 2px;
-  background: white;
-}
-
-.settings-section h2 {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--c-mid);
-  margin-bottom: 14px;
-}
-
+/* SETTINGS */
+.settings-section { margin-top: 24px; padding: 20px; border: 0.5px solid var(--c-rule); border-radius: 2px; background: white; }
+.settings-section h2 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-mid); margin-bottom: 14px; }
 .field { margin-bottom: 14px; }
-
-.field label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--c-mid);
-  margin-bottom: 5px;
-  letter-spacing: 0.06em;
-}
-
-.field input[type="text"],
-.field input[type="password"],
-.field textarea {
-  width: 100%;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  padding: 8px 10px;
-  border: 0.5px solid var(--c-rule);
-  background: var(--c-paper);
-  color: var(--c-ink);
-  border-radius: 2px;
-  outline: none;
-  resize: vertical;
-}
-
-.field input:focus,
+.field label { display: block; font-family: var(--font-mono); font-size: 11px; color: var(--c-mid); margin-bottom: 5px; letter-spacing: 0.06em; }
+.field textarea { width: 100%; font-family: var(--font-mono); font-size: 12px; padding: 8px 10px; border: 0.5px solid var(--c-rule); background: var(--c-paper); color: var(--c-ink); border-radius: 2px; outline: none; resize: vertical; }
 .field textarea:focus { border-color: var(--c-ink); }
+.field-note { font-family: var(--font-mono); font-size: 10px; color: var(--c-mid); margin-top: 4px; }
 
-.field-note {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--c-mid);
-  margin-top: 4px;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
-.site-footer {
-  border-top: 1.5px solid var(--c-ink);
-  padding: 12px 0 24px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.footer-note {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--c-mid);
-  letter-spacing: 0.06em;
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 600px) {
-  :root { --page-padding: 16px; }
-  .item { grid-template-columns: 32px 1fr; }
-  .item-meta { display: none; }
-}
+/* FOOTER */
+.site-footer { border-top: 1.5px solid var(--c-ink); padding: 12px 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-note { font-family: var(--font-mono); font-size: 10px; color: var(--c-mid); letter-spacing: 0.06em; }
 
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     LOGIN SCREEN
-     ============================================================ -->
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
     <div class="pub-name">BA Graphic &amp; Media Design</div>
-    <h1>The <em>Index</em></h1>
+    <h1>index.ai</h1>
     <div class="login-sub">Curator access</div>
     <input type="password" id="password-input" placeholder="Enter password"
       onkeydown="if(event.key==='Enter') doLogin()">
@@ -535,16 +284,14 @@ body {
   </div>
 </div>
 
-<!-- ============================================================
-     MAIN APP
-     ============================================================ -->
+<!-- APP -->
 <div id="app">
 <div class="page">
 
   <header class="masthead">
     <div>
       <div class="pub-name">BA Graphic &amp; Media Design</div>
-      <h1>The <em>Index</em> <span class="curator-badge">Curator</span></h1>
+      <h1>index.ai <span class="curator-badge">Curator</span></h1>
     </div>
     <div class="masthead-actions">
       <button class="btn btn-fetch" id="btn-fetch" onclick="fetchNewContent()">↻ Fetch this week</button>
@@ -559,15 +306,15 @@ body {
 
   <nav class="strand-nav">
     <button class="strand-tab active" data-strand="a" style="--strand-color: var(--c-strand-a)" onclick="switchTab('a',this)">
-      <span class="dot dot-a" aria-hidden="true"></span>AI &amp; industry
+      <span class="dot dot-a"></span>AI &amp; Creative Industry
       <span class="tab-count" id="count-a">0</span>
     </button>
     <button class="strand-tab" data-strand="b" style="--strand-color: var(--c-strand-b)" onclick="switchTab('b',this)">
-      <span class="dot dot-b" aria-hidden="true"></span>Environmental cost
+      <span class="dot dot-b"></span>Environmental Cost
       <span class="tab-count" id="count-b">0</span>
     </button>
     <button class="strand-tab" data-strand="c" style="--strand-color: var(--c-strand-c)" onclick="switchTab('c',this)">
-      <span class="dot dot-c" aria-hidden="true"></span>Creative opposition
+      <span class="dot dot-c"></span>Creative Opposition
       <span class="tab-count" id="count-c">0</span>
     </button>
     <button class="strand-tab" data-strand="settings" style="--strand-color: var(--c-mid)" onclick="switchTab('settings',this)">
@@ -581,64 +328,34 @@ body {
     <div class="panel"        id="panel-c"><div class="items-list" id="list-c"></div></div>
 
     <div class="panel" id="panel-settings">
-      <div class="settings-section">
-        <h2>API Keys</h2>
-        <div class="field">
-          <label>Anthropic API Key (for weekly fetch)</label>
-          <input type="password" id="cfg-anthropic-key" placeholder="sk-ant-…">
-          <div class="field-note">Stored in your browser only. Never sent anywhere except api.anthropic.com.</div>
-        </div>
-        <div class="field">
-          <label>GitHub Personal Access Token</label>
-          <input type="password" id="cfg-github-token" placeholder="ghp_…">
-          <div class="field-note">Needs repo scope. Used to publish content.json to your repository.</div>
-        </div>
-        <div class="field">
-          <label>GitHub Repository (owner/repo)</label>
-          <input type="text" id="cfg-github-repo" placeholder="yourname/the-signal">
-        </div>
-        <div class="field">
-          <label>GitHub Branch</label>
-          <input type="text" id="cfg-github-branch" placeholder="main">
-        </div>
-        <button class="btn btn-fetch" onclick="saveSettings()" style="margin-top:6px">Save settings</button>
-      </div>
 
-      <div class="settings-section" style="margin-top:16px">
+      <div class="settings-section">
         <h2>Curator Password</h2>
         <div class="field">
           <label>Change password</label>
-          <input type="password" id="cfg-new-password" placeholder="New password">
+          <input type="password" id="cfg-new-password" placeholder="New password"
+            style="width:100%;font-family:var(--font-mono);font-size:14px;padding:10px 12px;border:0.5px solid var(--c-rule);background:white;color:var(--c-ink);outline:none;border-radius:2px;">
+          <div class="field-note">Stored in this browser session only.</div>
         </div>
         <button class="btn btn-fetch" onclick="changePassword()" style="margin-top:6px">Update password</button>
-        <div class="field-note" style="margin-top:8px">Password is stored in your browser's localStorage.</div>
-      </div>
-
-      <div class="settings-section" style="margin-top:16px">
-        <h2>Cloudflare Worker URL</h2>
-        <div class="field">
-          <label>Worker URL</label>
-          <input type="text" id="cfg-worker-url" placeholder="https://signal-proxy.iamowenwells.workers.dev">
-          <div class="field-note">Your Cloudflare Worker proxies both RSS feeds and the Claude API call.</div>
-        </div>
-        <button class="btn btn-fetch" onclick="saveWorkerUrl()" style="margin-top:6px">Save Worker URL</button>
       </div>
 
       <div class="settings-section" style="margin-top:16px">
         <h2>RSS Feeds</h2>
         <div class="field">
           <label>Feeds as JSON array — each entry needs "url" and "source"</label>
-          <textarea id="cfg-feeds" rows="10"></textarea>
-          <div class="field-note">Articles are fetched live from these feeds, so every story has a real, working URL.</div>
+          <textarea id="cfg-feeds" rows="12"></textarea>
+          <div class="field-note">Edit to add or remove sources. All keys and tokens are stored securely in the Cloudflare Worker.</div>
         </div>
         <button class="btn btn-fetch" onclick="saveFeeds()" style="margin-top:6px">Save feeds</button>
         <button class="btn btn-undo" onclick="resetFeeds()" style="margin-top:6px;margin-left:6px">Reset to defaults</button>
       </div>
+
     </div>
   </main>
 
   <footer class="site-footer">
-    <span class="footer-note">Index — Curator Interface</span>
+    <span class="footer-note">index.ai — Curator Interface</span>
     <span class="footer-note"><a href="index.html" target="_blank" style="color:var(--c-mid)">View student page ↗</a></span>
   </footer>
 
@@ -647,17 +364,26 @@ body {
 
 <script>
 // ============================================================
+// CONFIG — update this URL if you rename your Worker
+// ============================================================
+const WORKER_URL = 'https://signal-proxy.iamowenwells.workers.dev';
+
+// ============================================================
+// DEFAULT PASSWORD
+// ============================================================
+const DEFAULT_PASSWORD = 'index2024';
+
+// ============================================================
 // STATE
 // ============================================================
 let draft = { a: [], b: [], c: [], lastUpdated: null };
+let sessionPassword = null;
 
 // ============================================================
-// PASSWORD / LOGIN
+// LOGIN
 // ============================================================
-const DEFAULT_PASSWORD = 'signal2024';
-
 function getPassword() {
-  return localStorage.getItem('signal_password') || DEFAULT_PASSWORD;
+  return sessionPassword || DEFAULT_PASSWORD;
 }
 
 function doLogin() {
@@ -665,7 +391,7 @@ function doLogin() {
   if (input === getPassword()) {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
-    loadSettings();
+    loadFeedsUI();
     loadDraftFromStorage();
   } else {
     document.getElementById('login-error').style.display = 'block';
@@ -675,72 +401,27 @@ function doLogin() {
 function changePassword() {
   const np = document.getElementById('cfg-new-password').value.trim();
   if (!np) return alert('Enter a new password.');
-  localStorage.setItem('signal_password', np);
-  alert('Password updated.');
-}
-
-// ============================================================
-// SETTINGS
-// ============================================================
-function loadSettings() {
-  document.getElementById('cfg-anthropic-key').value  = localStorage.getItem('signal_anthropic_key')  || '';
-  document.getElementById('cfg-github-token').value   = localStorage.getItem('signal_github_token')   || '';
-  document.getElementById('cfg-github-repo').value    = localStorage.getItem('signal_github_repo')    || '';
-  document.getElementById('cfg-github-branch').value  = localStorage.getItem('signal_github_branch')  || 'main';
-  document.getElementById('cfg-worker-url').value     = localStorage.getItem('signal_worker_url')     || '';
-  document.getElementById('cfg-feeds').value          = localStorage.getItem('signal_feeds')          ||
-    JSON.stringify(DEFAULT_FEEDS, null, 2);
-}
-
-function saveSettings() {
-  localStorage.setItem('signal_anthropic_key', document.getElementById('cfg-anthropic-key').value.trim());
-  localStorage.setItem('signal_github_token',  document.getElementById('cfg-github-token').value.trim());
-  localStorage.setItem('signal_github_repo',   document.getElementById('cfg-github-repo').value.trim());
-  localStorage.setItem('signal_github_branch', document.getElementById('cfg-github-branch').value.trim() || 'main');
-  setStatus('Settings saved.', 'success');
-}
-
-function saveWorkerUrl() {
-  localStorage.setItem('signal_worker_url', document.getElementById('cfg-worker-url').value.trim());
-  setStatus('Worker URL saved.', 'success');
-}
-
-function saveFeeds() {
-  try {
-    JSON.parse(document.getElementById('cfg-feeds').value); // validate
-    localStorage.setItem('signal_feeds', document.getElementById('cfg-feeds').value);
-    setStatus('Feeds saved.', 'success');
-  } catch {
-    setStatus('Invalid JSON in feeds — check the format.', 'error');
-  }
-}
-
-function resetFeeds() {
-  document.getElementById('cfg-feeds').value = JSON.stringify(DEFAULT_FEEDS, null, 2);
-  localStorage.removeItem('signal_feeds');
-  setStatus('Feeds reset to defaults.', 'success');
+  sessionPassword = np;
+  alert('Password updated for this session.');
 }
 
 // ============================================================
 // STATUS
 // ============================================================
 function setStatus(msg, type = '') {
-  const bar = document.getElementById('status-bar');
-  bar.className = 'status-bar ' + type;
+  document.getElementById('status-bar').className = 'status-bar ' + type;
   document.getElementById('status-text').textContent = msg;
   updateCounts();
 }
 
 function updateCounts() {
   ['a','b','c'].forEach(s => {
-    const items = draft[s] || [];
-    document.getElementById('count-' + s).textContent = items.length;
+    document.getElementById('count-' + s).textContent = (draft[s] || []).length;
   });
-  const all = [...(draft.a||[]), ...(draft.b||[]), ...(draft.c||[])];
+  const all      = [...(draft.a||[]), ...(draft.b||[]), ...(draft.c||[])];
   const approved = all.filter(i => i.status === 'approved').length;
   const pending  = all.filter(i => i.status === 'pending').length;
-  document.getElementById('status-counts').textContent =
-    approved + ' approved · ' + pending + ' pending';
+  document.getElementById('status-counts').textContent = approved + ' approved · ' + pending + ' pending';
   document.getElementById('btn-publish').disabled = approved === 0;
 }
 
@@ -755,12 +436,9 @@ function switchTab(strand, btn) {
 }
 
 // ============================================================
-// RENDER ITEMS
+// RENDER
 // ============================================================
-function renderAll() {
-  ['a','b','c'].forEach(renderStrand);
-  updateCounts();
-}
+function renderAll() { ['a','b','c'].forEach(renderStrand); updateCounts(); }
 
 function renderStrand(strand) {
   const list  = document.getElementById('list-' + strand);
@@ -782,20 +460,18 @@ function renderStrand(strand) {
         ${item.url ? `<div class="item-url"><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.url)}</a></div>` : ''}
         <div class="item-actions">
           ${item.status === 'pending' ? `
-            <button class="btn btn-approve" onclick="setStatus_item('${strand}',${i},'approved')">Approve</button>
-            <button class="btn btn-reject"  onclick="setStatus_item('${strand}',${i},'rejected')">Remove</button>
+            <button class="btn btn-approve" onclick="setItemStatus('${strand}',${i},'approved')">Approve</button>
+            <button class="btn btn-reject"  onclick="setItemStatus('${strand}',${i},'rejected')">Remove</button>
           ` : `
-            <button class="btn btn-undo" onclick="setStatus_item('${strand}',${i},'pending')">Undo</button>
+            <button class="btn btn-undo" onclick="setItemStatus('${strand}',${i},'pending')">Undo</button>
           `}
         </div>
       </div>
-      <div class="item-meta">
-        <div class="item-date">${esc(item.date)}</div>
-      </div>
+      <div class="item-meta"><div class="item-date">${esc(item.date)}</div></div>
     </article>`).join('');
 }
 
-function setStatus_item(strand, i, status) {
+function setItemStatus(strand, i, status) {
   draft[strand][i].status = status;
   saveDraftToStorage();
   renderStrand(strand);
@@ -807,96 +483,96 @@ function esc(s) {
 }
 
 // ============================================================
-// DRAFT PERSISTENCE (localStorage)
+// DRAFT PERSISTENCE (sessionStorage — clears when tab closes)
 // ============================================================
 function saveDraftToStorage() {
-  localStorage.setItem('signal_draft', JSON.stringify(draft));
+  try { sessionStorage.setItem('indexai_draft', JSON.stringify(draft)); } catch {}
 }
 
 function loadDraftFromStorage() {
-  const saved = localStorage.getItem('signal_draft');
-  if (saved) {
-    try {
+  try {
+    const saved = sessionStorage.getItem('indexai_draft');
+    if (saved) {
       draft = JSON.parse(saved);
       renderAll();
-      setStatus('Draft loaded from last session.', '');
-    } catch {}
-  }
+      setStatus('Draft loaded from this session.', '');
+    }
+  } catch {}
 }
 
 // ============================================================
-// RSS FEEDS
-// Default feeds — user can add more in Settings
+// FEEDS
 // ============================================================
 const DEFAULT_FEEDS = [
-  // Creative industry — design press
-  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',                        source: "It's Nice That" },
-  { url: 'https://www.creativereview.co.uk/feed/',                                source: 'Creative Review' },
-  { url: 'https://www.dezeen.com/feed/',                                           source: 'Dezeen' },
-  { url: 'https://www.dezeen.com/category/graphics/feed/',                        source: 'Dezeen Graphics' },
-  { url: 'https://www.designweek.co.uk/feed',                                     source: 'Design Week' },
-  { url: 'https://www.creativebloq.com/feed?x=1',                                 source: 'Creative Bloq' },
-  { url: 'https://www.designboom.com/feed',                                        source: 'Designboom' },
-  { url: 'https://eyeondesign.aiga.org/feed/',                                    source: 'AIGA Eye on Design' },
-  { url: 'https://www.printmag.com/feed/',                                         source: 'Print Magazine' },
-  { url: 'https://www.creativeboom.com/feed/',                                     source: 'Creative Boom' },
-  { url: 'https://motionographer.com/feed/',                                       source: 'Motionographer' },
-  // Art / critical theory
-  { url: 'https://e-flux.com/rss/',                                                source: 'e-flux' },
-  { url: 'https://frieze.com/feed',                                                source: 'Frieze' },
-  { url: 'https://www.artforum.com/rss',                                           source: 'Artforum' },
-  { url: 'https://hyperallergic.com/feed/',                                        source: 'Hyperallergic' },
-  // AI — critical and analytical
-  { url: 'https://thegradient.pub/rss/',                                           source: 'The Gradient' },
-  { url: 'https://www.technologyreview.com/feed/',                                 source: 'MIT Tech Review' },
-  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss',   source: 'The Guardian AI' },
-  { url: 'https://www.wired.com/feed/rss',                                         source: 'Wired' },
-  // Environment
-  { url: 'https://www.theguardian.com/environment/rss',                            source: 'The Guardian Environment' },
-  { url: 'https://grist.org/feed/',                                                source: 'Grist' },
+  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',                       source: "It's Nice That" },
+  { url: 'https://www.creativereview.co.uk/feed/',                               source: 'Creative Review' },
+  { url: 'https://www.dezeen.com/feed/',                                          source: 'Dezeen' },
+  { url: 'https://www.dezeen.com/category/graphics/feed/',                       source: 'Dezeen Graphics' },
+  { url: 'https://www.designweek.co.uk/feed',                                    source: 'Design Week' },
+  { url: 'https://www.creativebloq.com/feed?x=1',                                source: 'Creative Bloq' },
+  { url: 'https://www.designboom.com/feed',                                       source: 'Designboom' },
+  { url: 'https://eyeondesign.aiga.org/feed/',                                   source: 'AIGA Eye on Design' },
+  { url: 'https://www.printmag.com/feed/',                                        source: 'Print Magazine' },
+  { url: 'https://www.creativeboom.com/feed/',                                    source: 'Creative Boom' },
+  { url: 'https://motionographer.com/feed/',                                      source: 'Motionographer' },
+  { url: 'https://e-flux.com/rss/',                                               source: 'e-flux' },
+  { url: 'https://frieze.com/feed',                                               source: 'Frieze' },
+  { url: 'https://www.artforum.com/rss',                                          source: 'Artforum' },
+  { url: 'https://hyperallergic.com/feed/',                                       source: 'Hyperallergic' },
+  { url: 'https://thegradient.pub/rss/',                                          source: 'The Gradient' },
+  { url: 'https://www.technologyreview.com/feed/',                                source: 'MIT Tech Review' },
+  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss',  source: 'The Guardian AI' },
+  { url: 'https://www.wired.com/feed/rss',                                        source: 'Wired' },
+  { url: 'https://www.theguardian.com/environment/rss',                           source: 'The Guardian Environment' },
+  { url: 'https://grist.org/feed/',                                               source: 'Grist' },
 ];
 
 function getFeeds() {
-  const custom = localStorage.getItem('signal_feeds');
-  if (custom) {
-    try { return JSON.parse(custom); } catch {}
-  }
+  try {
+    const saved = sessionStorage.getItem('indexai_feeds');
+    if (saved) return JSON.parse(saved);
+  } catch {}
   return DEFAULT_FEEDS;
 }
 
+function loadFeedsUI() {
+  document.getElementById('cfg-feeds').value =
+    JSON.stringify(getFeeds(), null, 2);
+}
+
+function saveFeeds() {
+  try {
+    const parsed = JSON.parse(document.getElementById('cfg-feeds').value);
+    sessionStorage.setItem('indexai_feeds', JSON.stringify(parsed));
+    setStatus('Feeds saved for this session.', 'success');
+  } catch {
+    setStatus('Invalid JSON — check the format.', 'error');
+  }
+}
+
+function resetFeeds() {
+  sessionStorage.removeItem('indexai_feeds');
+  document.getElementById('cfg-feeds').value = JSON.stringify(DEFAULT_FEEDS, null, 2);
+  setStatus('Feeds reset to defaults.', 'success');
+}
+
 // ============================================================
-// FETCH NEW CONTENT VIA RSS + CLAUDE
+// FETCH — RSS + CLAUDE (all keys live in the Worker)
 // ============================================================
 async function fetchNewContent() {
-  const apiKey     = localStorage.getItem('signal_anthropic_key');
-  const workerUrl  = localStorage.getItem('signal_worker_url');
-
-  if (!apiKey) {
-    setStatus('Add your Anthropic API key in Settings first.', 'error');
-    switchTab('settings', document.querySelector('[data-strand="settings"]'));
-    return;
-  }
-  if (!workerUrl) {
-    setStatus('Add your Cloudflare Worker URL in Settings first.', 'error');
-    switchTab('settings', document.querySelector('[data-strand="settings"]'));
-    return;
-  }
-
   setStatus('Step 1/2 — Fetching RSS feeds…', 'loading');
   document.getElementById('btn-fetch').disabled = true;
 
   try {
-    // ── Step 1: fetch all RSS feeds via the Worker proxy ──
-    const feeds  = getFeeds();
+    const feeds   = getFeeds();
     const results = await Promise.allSettled(
       feeds.map(feed =>
-        fetch(`${workerUrl}?action=rss&url=${encodeURIComponent(feed.url)}`)
+        fetch(`${WORKER_URL}?action=rss&url=${encodeURIComponent(feed.url)}`)
           .then(r => r.json())
           .then(data => ({ source: feed.source, items: data.items || [] }))
       )
     );
 
-    // Collect all items that loaded successfully
     const allItems = [];
     results.forEach(r => {
       if (r.status === 'fulfilled') {
@@ -904,8 +580,8 @@ async function fetchNewContent() {
           allItems.push({
             source:  r.value.source,
             title:   item.title   || '',
-            summary: item.summary || item.description || '',
-            url:     item.url     || item.link        || '',
+            summary: item.summary || '',
+            url:     item.url     || '',
             date:    item.date    || '',
             image:   item.image   || '',
           });
@@ -913,64 +589,59 @@ async function fetchNewContent() {
       }
     });
 
-    if (allItems.length === 0) {
-      throw new Error('No articles retrieved from feeds. Check your Worker URL in Settings.');
-    }
+    if (allItems.length === 0) throw new Error('No articles retrieved from feeds.');
 
-    setStatus(`Step 2/2 — Categorising ${allItems.length} articles with Claude…`, 'loading');
+    setStatus(`Step 2/2 — Categorising ${allItems.length} articles…`, 'loading');
 
-    // ── Step 2: send real articles to Claude for categorisation ──
     const articleList = allItems.map((item, i) =>
-      `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nIMAGE: ${item.image || ''}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
+      `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nIMAGE: ${item.image}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
     ).join('\n\n');
 
-    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called Index. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
+    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called index.ai. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
 
 Below is a list of real articles fetched live from RSS feeds. Your task is to:
 1. Select the most relevant articles for each of the three strands (3–5 per strand)
-2. Write a concise 2-sentence editorial summary for each, written directly for BA design students — connect the story to their practice, career, or creative context
+2. Write a concise 2-sentence editorial summary for each, written directly for BA design students
 3. Return ONLY articles that genuinely fit a strand — do not force articles that don't fit
-4. Preserve the exact URL from the source data — never modify or invent URLs
-5. Prioritise recency — prefer articles from the last 7 days where possible
+4. Preserve the EXACT URL and EXACT IMAGE URL from the source data — never modify or invent these
+5. Prioritise recency — prefer articles from the last 7 days
 
-THE THREE STRANDS — read these carefully before categorising:
+THE THREE STRANDS:
 
-A — AI & Creative Industry (focus on CREATIVE industries specifically)
-How AI tools are changing graphic design, motion design, illustration, branding, photography, and visual communication studios. New tools entering creative workflows. How studios, agencies, and freelancers are responding — adopting, resisting, or negotiating with AI. Effects on junior designers entering the market. Displacement of creative labour. NOT generic tech industry AI news unless it has a direct creative industry angle.
+A — AI & Creative Industry
+How AI tools are changing graphic design, motion design, illustration, branding, photography, and visual communication studios. NOT generic tech AI news unless it has a direct creative industry angle.
 
 B — Environmental Cost of AI
-The energy, water, and carbon footprint of AI infrastructure as it relates to the creative industries' use of generative tools. Data centre resource consumption. Tech company sustainability claims versus reality. The hidden cost of image generation, video synthesis, and AI-assisted design at scale.
+Energy, water, and carbon footprint of AI infrastructure. Data centre resource consumption. The hidden cost of generative tools at scale.
 
-C — Creative Opposition (prioritise this strand — aim for 5 items)
-This is the most important strand for student learning. Artists, designers, illustrators, motion designers, writers, and educators who are critically engaging with, working against, or deliberately sidestepping AI. Slow-tech and analogue practice as a counter-position. Critical essays on AI aesthetics and labour. Conceptual or activist projects that interrogate what generative AI does to authorship, craft, and visual culture. Designers defending their practice. Include strong critical writing and theory from art/design publications.
+C — Creative Opposition (aim for 5 items — this is the most important strand)
+Artists, designers, illustrators, motion designers, writers critically engaging with or working against AI. Slow-tech, analogue practice, critical essays, conceptual projects interrogating AI aesthetics or labour.
 
-ARTICLES TO CATEGORISE:
+ARTICLES:
 ${articleList}
 
-Respond ONLY with valid JSON, no preamble, no markdown fences:
+Respond ONLY with valid JSON, no preamble, no markdown:
 {
-  "a": [{"source":"...","headline":"...","summary":"...","url":"EXACT URL FROM ABOVE","image":"EXACT IMAGE URL FROM ABOVE or empty string","date":"..."}],
+  "a": [{"source":"...","headline":"...","summary":"...","url":"EXACT URL","image":"EXACT IMAGE URL or empty string","date":"..."}],
   "b": [...],
   "c": [...]
 }`;
 
-    const claudeRes = await fetch(`${workerUrl}?action=claude`, {
+    const claudeRes = await fetch(`${WORKER_URL}?action=claude`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ apiKey, prompt })
+      body: JSON.stringify({ prompt })
     });
 
     if (!claudeRes.ok) {
       const err = await claudeRes.json().catch(() => ({}));
-      throw new Error(err.error || 'Claude API error ' + claudeRes.status);
+      throw new Error(err.error || 'Claude error ' + claudeRes.status);
     }
 
-    const claudeData = await claudeRes.json();
-    const text  = claudeData.text || '';
-    const clean = text.replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(clean);
+    const { text } = await claudeRes.json();
+    const clean    = text.replace(/```json|```/g, '').trim();
+    const parsed   = JSON.parse(clean);
 
-    // Mark all as pending
     ['a','b','c'].forEach(s => {
       parsed[s] = (parsed[s] || []).map(item => ({ ...item, status: 'pending' }));
     });
@@ -981,7 +652,7 @@ Respond ONLY with valid JSON, no preamble, no markdown fences:
     renderAll();
 
     const total = [...(parsed.a||[]),...(parsed.b||[]),...(parsed.c||[])].length;
-    setStatus(`Fetched ${total} real articles from RSS feeds. All have working links. Review and approve before publishing.`, 'success');
+    setStatus(`Fetched ${total} real articles. Review and approve before publishing.`, 'success');
 
   } catch (e) {
     setStatus('Fetch failed: ' + e.message, 'error');
@@ -991,67 +662,30 @@ Respond ONLY with valid JSON, no preamble, no markdown fences:
 }
 
 // ============================================================
-// PUBLISH TO GITHUB
+// PUBLISH — via Worker (GitHub token lives in Worker env vars)
 // ============================================================
 async function publishContent() {
-  const token  = localStorage.getItem('signal_github_token');
-  const repo   = localStorage.getItem('signal_github_repo');
-  const branch = localStorage.getItem('signal_github_branch') || 'main';
-
-  if (!token || !repo) {
-    setStatus('Add your GitHub token and repository in Settings first.', 'error');
-    switchTab('settings', document.querySelector('[data-strand="settings"]'));
-    return;
-  }
-
-  setStatus('Publishing to GitHub…', 'loading');
   document.getElementById('btn-publish').disabled = true;
+  setStatus('Publishing to GitHub…', 'loading');
 
-  // Build the published content: only approved items, strip status field
   const toPublish = {
     lastUpdated: new Date().toISOString(),
-    a: (draft.a||[]).filter(i => i.status === 'approved').map(({status, ...rest}) => ({...rest, status:'approved'})),
-    b: (draft.b||[]).filter(i => i.status === 'approved').map(({status, ...rest}) => ({...rest, status:'approved'})),
-    c: (draft.c||[]).filter(i => i.status === 'approved').map(({status, ...rest}) => ({...rest, status:'approved'}))
+    a: (draft.a||[]).filter(i => i.status === 'approved'),
+    b: (draft.b||[]).filter(i => i.status === 'approved'),
+    c: (draft.c||[]).filter(i => i.status === 'approved'),
   };
 
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(toPublish, null, 2))));
-  const apiUrl  = `https://api.github.com/repos/${repo}/contents/content.json`;
-
   try {
-    // Get current SHA (needed for update)
-    let sha = null;
-    const getRes = await fetch(apiUrl + '?ref=' + branch, {
-      headers: { Authorization: 'token ' + token, Accept: 'application/vnd.github.v3+json' }
-    });
-    if (getRes.ok) {
-      const existing = await getRes.json();
-      sha = existing.sha;
-    }
-
-    const body = {
-      message: 'Update content.json — ' + new Date().toLocaleDateString('en-GB'),
-      content,
-      branch
-    };
-    if (sha) body.sha = sha;
-
-    const putRes = await fetch(apiUrl, {
-      method: 'PUT',
-      headers: {
-        Authorization: 'token ' + token,
-        Accept: 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
+    const res = await fetch(`${WORKER_URL}?action=publish`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: JSON.stringify(toPublish, null, 2) })
     });
 
-    if (!putRes.ok) {
-      const err = await putRes.json().catch(() => ({}));
-      throw new Error(err.message || 'GitHub API error ' + putRes.status);
-    }
+    const data = await res.json();
+    if (!res.ok || data.error) throw new Error(data.error || 'Publish failed');
 
-    setStatus('Published successfully. Student page will update within 1–2 minutes.', 'success');
+    setStatus('Published. Student page will update within 1–2 minutes.', 'success');
 
   } catch (e) {
     setStatus('Publish failed: ' + e.message, 'error');
@@ -1063,7 +697,6 @@ async function publishContent() {
 // ============================================================
 // INIT
 // ============================================================
-// Auto-focus password field
 document.getElementById('password-input').focus();
 </script>
 </body>
