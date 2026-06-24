@@ -593,9 +593,12 @@ async function fetchNewContent() {
 
     setStatus(`Step 2/2 — Categorising ${allItems.length} articles…`, 'loading');
 
+    // Sanitise fields to avoid breaking JSON output
+    const cs = s => (s||'').replace(/[\x00-\x1f]/g, ' ').replace(/`/g, "'").trim();
+
     const articleList = allItems.map((item, i) =>
-      `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nIMAGE: ${item.image}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
-    ).join('\n\n');
+      `[${i}] SOURCE: ${cs(item.source)} | TITLE: ${cs(item.title)} | URL: ${item.url} | IMAGE: ${item.image||''} | DATE: ${cs(item.date)} | SNIPPET: ${cs(item.summary).slice(0, 150)}`
+    ).join('\n');
 
     const prompt = `You are a content curator for a BA Graphic & Media Design course resource called index.ai. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
 
@@ -639,8 +642,23 @@ Respond ONLY with valid JSON, no preamble, no markdown:
     }
 
     const { text } = await claudeRes.json();
-    const clean    = text.replace(/```json|```/g, '').trim();
-    const parsed   = JSON.parse(clean);
+
+    // Robustly extract JSON from Claude's response
+    // Try to find the outermost { ... } block
+    let parsed;
+    try {
+      // Strip markdown fences
+      let clean = text.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
+      // Find first { and last }
+      const start = clean.indexOf('{');
+      const end   = clean.lastIndexOf('}');
+      if (start === -1 || end === -1) throw new Error('No JSON object found in response');
+      clean = clean.slice(start, end + 1);
+      parsed = JSON.parse(clean);
+    } catch (parseErr) {
+      console.error('Raw Claude response:', text);
+      throw new Error('Could not parse Claude response as JSON: ' + parseErr.message);
+    }
 
     ['a','b','c'].forEach(s => {
       parsed[s] = (parsed[s] || []).map(item => ({ ...item, status: 'pending' }));
