@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Signal — Curator</title>
+<title>Index — Curator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
@@ -526,7 +526,7 @@ body {
 <div id="login-screen">
   <div class="login-box">
     <div class="pub-name">BA Graphic &amp; Media Design</div>
-    <h1>The <em>Signal</em></h1>
+    <h1>The <em>Index</em></h1>
     <div class="login-sub">Curator access</div>
     <input type="password" id="password-input" placeholder="Enter password"
       onkeydown="if(event.key==='Enter') doLogin()">
@@ -544,7 +544,7 @@ body {
   <header class="masthead">
     <div>
       <div class="pub-name">BA Graphic &amp; Media Design</div>
-      <h1>The <em>Signal</em> <span class="curator-badge">Curator</span></h1>
+      <h1>The <em>Index</em> <span class="curator-badge">Curator</span></h1>
     </div>
     <div class="masthead-actions">
       <button class="btn btn-fetch" id="btn-fetch" onclick="fetchNewContent()">↻ Fetch this week</button>
@@ -638,7 +638,7 @@ body {
   </main>
 
   <footer class="site-footer">
-    <span class="footer-note">The Signal — Curator Interface</span>
+    <span class="footer-note">Index — Curator Interface</span>
     <span class="footer-note"><a href="index.html" target="_blank" style="color:var(--c-mid)">View student page ↗</a></span>
   </footer>
 
@@ -923,7 +923,7 @@ async function fetchNewContent() {
       `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nIMAGE: ${item.image || ''}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
     ).join('\n\n');
 
-    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
+    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called Index. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
 
 Below is a list of real articles fetched live from RSS feeds. Your task is to:
 1. Select the most relevant articles for each of the three strands (3–5 per strand)
