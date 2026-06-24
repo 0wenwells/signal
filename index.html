@@ -22,34 +22,29 @@
   --font-mono:        'DM Mono', 'Courier New', monospace;
 
   /* Core palette */
-  --c-ink:            #1a1916;   /* primary text + borders */
-  --c-paper:          #f5f3ee;   /* page background */
-  --c-mid:            #7a7870;   /* secondary / muted text */
-  --c-rule:           #d8d5ce;   /* divider lines */
+  --c-ink:            #1a1916;
+  --c-paper:          #f5f3ee;
+  --c-mid:            #7a7870;
+  --c-rule:           #d8d5ce;
 
   /* Strand accent colours */
-  --c-strand-a:       #1a1916;   /* AI & Industry */
+  --c-strand-a:       #1a1916;   /* AI & Creative Industry */
   --c-strand-b:       #2d5a3d;   /* Environmental cost */
   --c-strand-c:       #8b2e12;   /* Creative opposition */
 
   /* Layout */
-  --max-width:        860px;
+  --max-width:        1200px;
   --page-padding:     28px;
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
   background: var(--c-paper);
   color: var(--c-ink);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -87,7 +82,6 @@ a:hover { opacity: 0.7; }
 }
 
 .masthead h1 {
-  font-family: var(--font-sans);
   font-size: 34px;
   font-weight: 300;
   letter-spacing: -0.025em;
@@ -122,37 +116,40 @@ a:hover { opacity: 0.7; }
 }
 
 /* ============================================================
-   STRAND NAVIGATION
+   THREE COLUMN GRID
    ============================================================ */
 
-.strand-nav {
-  display: flex;
-  border-bottom: 0.5px solid var(--c-rule);
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1.5px solid var(--c-ink);
 }
 
-.strand-tab {
+/* ============================================================
+   COLUMN HEADERS
+   ============================================================ */
+
+.col-header {
+  padding: 14px 20px 12px 0;
+  border-bottom: 2px solid var(--strand-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.col-header + .col-header {
+  padding-left: 20px;
+  border-left: 0.5px solid var(--c-rule);
+}
+
+.col-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 12px 20px 12px 0;
-  cursor: pointer;
-  border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -0.5px;
-  color: var(--c-mid);
-  background: none;
-  transition: color 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.strand-tab:hover { color: var(--c-ink); }
-
-.strand-tab.active {
   color: var(--strand-color);
-  border-bottom-color: var(--strand-color);
+  font-weight: 500;
 }
 
 .dot {
@@ -160,35 +157,30 @@ a:hover { opacity: 0.7; }
   height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
+  background: var(--strand-color);
 }
-
-.dot-a { background: var(--c-strand-a); }
-.dot-b { background: var(--c-strand-b); }
-.dot-c { background: var(--c-strand-c); }
 
 /* ============================================================
-   PANELS & ITEMS
+   COLUMN BODIES
    ============================================================ */
 
-.panel { display: none; padding: 24px 0 48px; }
-.panel.active { display: block; }
-
-.items-list { display: flex; flex-direction: column; }
-
-.item {
-  padding: 18px 0;
-  border-bottom: 0.5px solid var(--c-rule);
-  display: grid;
-  grid-template-columns: 52px 1fr 72px;
-  gap: 0 16px;
-  align-items: start;
+.col-body {
+  padding: 0 20px 32px 0;
+  border-top: none;
 }
 
-.item-num {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--c-mid);
-  padding-top: 2px;
+.col-body + .col-body {
+  padding-left: 20px;
+  border-left: 0.5px solid var(--c-rule);
+}
+
+/* ============================================================
+   ITEMS
+   ============================================================ */
+
+.item {
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--c-rule);
 }
 
 .item-source {
@@ -198,38 +190,42 @@ a:hover { opacity: 0.7; }
   text-transform: uppercase;
   color: var(--c-mid);
   margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.item-date {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-rule);
 }
 
 .item-headline {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.35;
   margin-bottom: 6px;
 }
 
 .item-headline a { text-decoration: none; }
-.item-headline a:hover { text-decoration: underline; text-underline-offset: 3px; opacity: 1; }
+.item-headline a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 1;
+}
 
 .item-summary {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--c-mid);
   line-height: 1.55;
 }
 
-.item-date {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--c-mid);
-  white-space: nowrap;
-  text-align: right;
-  padding-top: 2px;
-}
-
 .state-msg {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--c-mid);
-  padding: 40px 0;
+  padding: 32px 0;
   letter-spacing: 0.06em;
 }
 
@@ -238,7 +234,6 @@ a:hover { opacity: 0.7; }
    ============================================================ */
 
 .site-footer {
-  border-top: 1.5px solid var(--c-ink);
   padding: 14px 0 28px;
   display: flex;
   justify-content: space-between;
@@ -254,16 +249,22 @@ a:hover { opacity: 0.7; }
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — collapse to tabs on narrow screens
    ============================================================ */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   :root { --page-padding: 16px; }
+
+  .columns { grid-template-columns: 1fr; border-bottom: none; }
+
+  .col-header { border-bottom: none; border-top: 1.5px solid var(--c-ink); padding-left: 0; }
+  .col-header + .col-header { border-left: none; padding-left: 0; }
+
+  .col-body { padding-left: 0; }
+  .col-body + .col-body { border-left: none; }
+
   .masthead { flex-direction: column; align-items: flex-start; }
   .masthead-right { text-align: left; }
-  .item { grid-template-columns: 36px 1fr; }
-  .item-date { display: none; }
-  .strand-tab { font-size: 9px; padding-right: 12px; }
 }
 
 </style>
@@ -279,26 +280,43 @@ a:hover { opacity: 0.7; }
     <div class="masthead-right">
       <div class="week-label" id="week-label">—</div>
       <div class="signal-count" id="signal-count">—</div>
-      <div class="signal-label">approved items</div>
+      <div class="signal-label">items this week</div>
     </div>
   </header>
 
-  <nav class="strand-nav">
-    <button class="strand-tab active" data-strand="a" style="--strand-color: var(--c-strand-a)" onclick="switchTab('a',this)">
-      <span class="dot dot-a" aria-hidden="true"></span>AI &amp; industry
-    </button>
-    <button class="strand-tab" data-strand="b" style="--strand-color: var(--c-strand-b)" onclick="switchTab('b',this)">
-      <span class="dot dot-b" aria-hidden="true"></span>Environmental cost
-    </button>
-    <button class="strand-tab" data-strand="c" style="--strand-color: var(--c-strand-c)" onclick="switchTab('c',this)">
-      <span class="dot dot-c" aria-hidden="true"></span>Creative opposition
-    </button>
-  </nav>
-
   <main>
-    <div class="panel active" id="panel-a"><div class="items-list" id="list-a"></div></div>
-    <div class="panel"        id="panel-b"><div class="items-list" id="list-b"></div></div>
-    <div class="panel"        id="panel-c"><div class="items-list" id="list-c"></div></div>
+    <div class="columns">
+
+      <!-- Column A header -->
+      <div class="col-header" style="--strand-color: var(--c-strand-a)">
+        <span class="dot"></span>
+        <span class="col-label">AI &amp; Creative Industry</span>
+      </div>
+      <!-- Column B header -->
+      <div class="col-header" style="--strand-color: var(--c-strand-b)">
+        <span class="dot"></span>
+        <span class="col-label">Environmental Cost</span>
+      </div>
+      <!-- Column C header -->
+      <div class="col-header" style="--strand-color: var(--c-strand-c)">
+        <span class="dot"></span>
+        <span class="col-label">Creative Opposition</span>
+      </div>
+
+      <!-- Column A body -->
+      <div class="col-body">
+        <div id="list-a"></div>
+      </div>
+      <!-- Column B body -->
+      <div class="col-body">
+        <div id="list-b"></div>
+      </div>
+      <!-- Column C body -->
+      <div class="col-body">
+        <div id="list-c"></div>
+      </div>
+
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -342,33 +360,25 @@ function render(data) {
     const items = (data[strand]||[]).filter(i => i.status === 'approved');
     const list  = document.getElementById('list-' + strand);
     if (!items.length) {
-      list.innerHTML = '<p class="state-msg">No items approved for this week yet.</p>';
+      list.innerHTML = '<p class="state-msg">No items this week yet.</p>';
       return;
     }
     list.innerHTML = items.map((item, i) => `
       <article class="item">
-        <div class="item-num">0${i+1}</div>
-        <div>
-          <div class="item-source">${esc(item.source)}</div>
-          <h2 class="item-headline">${item.url
-            ? `<a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.headline)}</a>`
-            : esc(item.headline)}</h2>
-          <p class="item-summary">${esc(item.summary)}</p>
+        <div class="item-source">
+          <span>${esc(item.source)}</span>
+          <span class="item-date">${esc(item.date)}</span>
         </div>
-        <div class="item-date">${esc(item.date)}</div>
+        <h2 class="item-headline">${item.url
+          ? `<a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.headline)}</a>`
+          : esc(item.headline)}</h2>
+        <p class="item-summary">${esc(item.summary)}</p>
       </article>`).join('');
   });
 }
 
 function esc(s) {
   return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function switchTab(strand, btn) {
-  document.querySelectorAll('.strand-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('panel-' + strand).classList.add('active');
 }
 
 loadContent();
