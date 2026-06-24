@@ -812,14 +812,26 @@ function loadDraftFromStorage() {
 // Default feeds — user can add more in Settings
 // ============================================================
 const DEFAULT_FEEDS = [
-  { url: 'https://www.wired.com/feed/rss',                        source: 'Wired' },
-  { url: 'https://www.theguardian.com/environment/rss',           source: 'The Guardian' },
-  { url: 'https://www.technologyreview.com/feed/',                source: 'MIT Tech Review' },
-  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',        source: "It's Nice That" },
-  { url: 'https://www.dezeen.com/feed/',                          source: 'Dezeen' },
-  { url: 'https://www.creativereview.co.uk/feed/',                source: 'Creative Review' },
-  { url: 'https://e-flux.com/rss/',                               source: 'e-flux' },
-  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss', source: 'The Guardian AI' },
+  // Creative industry
+  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',                       source: "It's Nice That" },
+  { url: 'https://www.creativereview.co.uk/feed/',                               source: 'Creative Review' },
+  { url: 'https://www.dezeen.com/feed/',                                          source: 'Dezeen' },
+  { url: 'https://eyeondesign.aiga.org/feed/',                                   source: 'AIGA Eye on Design' },
+  { url: 'https://www.printmag.com/feed/',                                        source: 'Print Magazine' },
+  { url: 'https://www.creativeboom.com/feed/',                                    source: 'Creative Boom' },
+  { url: 'https://motionographer.com/feed/',                                      source: 'Motionographer' },
+  // Art / critical theory
+  { url: 'https://e-flux.com/rss/',                                               source: 'e-flux' },
+  { url: 'https://frieze.com/feed',                                               source: 'Frieze' },
+  { url: 'https://www.artforum.com/rss',                                          source: 'Artforum' },
+  { url: 'https://hyperallergic.com/feed/',                                       source: 'Hyperallergic' },
+  // Tech / AI industry
+  { url: 'https://www.wired.com/feed/rss',                                        source: 'Wired' },
+  { url: 'https://www.technologyreview.com/feed/',                                source: 'MIT Tech Review' },
+  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss',  source: 'The Guardian AI' },
+  // Environment
+  { url: 'https://www.theguardian.com/environment/rss',                           source: 'The Guardian Environment' },
+  { url: 'https://grist.org/feed/',                                               source: 'Grist' },
 ];
 
 function getFeeds() {
@@ -889,24 +901,25 @@ async function fetchNewContent() {
       `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
     ).join('\n\n');
 
-    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal.
+    const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
 
 Below is a list of real articles fetched live from RSS feeds. Your task is to:
 1. Select the most relevant articles for each of the three strands (3–5 per strand)
-2. Write a concise 2-sentence editorial summary for each, written for BA design students
+2. Write a concise 2-sentence editorial summary for each, written directly for BA design students — connect the story to their practice, career, or creative context
 3. Return ONLY articles that genuinely fit a strand — do not force articles that don't fit
 4. Preserve the exact URL from the source data — never modify or invent URLs
+5. Prioritise recency — prefer articles from the last 7 days where possible
 
-THE THREE STRANDS:
+THE THREE STRANDS — read these carefully before categorising:
 
-A — AI & Industry
-AI tools entering creative professional workflows, studios adopting or resisting AI, industry displacement, new AI-powered design/motion/branding tools, effects on freelance and studio economics.
+A — AI & Creative Industry (focus on CREATIVE industries specifically)
+How AI tools are changing graphic design, motion design, illustration, branding, photography, and visual communication studios. New tools entering creative workflows. How studios, agencies, and freelancers are responding — adopting, resisting, or negotiating with AI. Effects on junior designers entering the market. Displacement of creative labour. NOT generic tech industry AI news unless it has a direct creative industry angle.
 
-B — Environmental cost
-Energy, water, and carbon footprint of AI infrastructure. Data centres, training runs, inference costs, tech company sustainability claims vs reality.
+B — Environmental Cost of AI
+The energy, water, and carbon footprint of AI infrastructure as it relates to the creative industries' use of generative tools. Data centre resource consumption. Tech company sustainability claims versus reality. The hidden cost of image generation, video synthesis, and AI-assisted design at scale.
 
-C — Creative opposition
-Artists, designers, writers, educators critically engaging with, working against, or deliberately sidestepping AI. Counter-movements, slow-tech practices, critical essays, conceptual projects interrogating AI aesthetics or labour.
+C — Creative Opposition (prioritise this strand — aim for 5 items)
+This is the most important strand for student learning. Artists, designers, illustrators, motion designers, writers, and educators who are critically engaging with, working against, or deliberately sidestepping AI. Slow-tech and analogue practice as a counter-position. Critical essays on AI aesthetics and labour. Conceptual or activist projects that interrogate what generative AI does to authorship, craft, and visual culture. Designers defending their practice. Include strong critical writing and theory from art/design publications.
 
 ARTICLES TO CATEGORISE:
 ${articleList}
