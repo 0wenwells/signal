@@ -1,34 +1,26 @@
 {
-  "lastUpdated": "2026-06-24T08:05:21.879Z",
+  "lastUpdated": "2026-06-24T08:51:31.219Z",
   "a": [
     {
       "source": "The Guardian AI",
-      "headline": "'Who is going to pay us when we're replaced by robots?' The Indian factory workers told to film themselves for AI",
-      "summary": "Factory workers in India were asked to wear cameras and document their own movements to train AI systems that could eventually replace them — raising urgent questions about labour, consent, and who bears the cost of automation. This piece is a stark reminder that AI's disruption of work is already happening at the most vulnerable end of global supply chains.",
-      "url": "https://www.theguardian.com/global-development/2026/jun/24/indian-factory-workers-told-film-themselves-for-ai-robots",
-      "date": "24 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "The Guardian AI",
-      "headline": "You're only supposed to blow the bloody hooves off: AI Michael Caine narrates Odyssey audiobook",
-      "summary": "ElevenLabs has released an officially licensed AI replica of Michael Caine's voice to narrate a retelling of Homer's Odyssey, marking a significant moment in the commercialisation of voice likeness. This raises immediate questions for designers, animators, and creative professionals about the future value of human-performed creative labour.",
+      "headline": "AI Michael Caine narrates Odyssey audiobook",
+      "summary": "ElevenLabs has launched an officially licensed AI replica of Michael Caine's voice to narrate a retelling of Homer's Odyssey — a sign that synthetic voice performance is now entering mainstream publishing and media production. As a designer or motion practitioner, this raises urgent questions about the future of creative labour in audio-visual storytelling and where the line between licensed likeness and authentic performance sits.",
       "url": "https://www.theguardian.com/film/2026/jun/23/youre-only-supposed-to-blow-the-bloody-hooves-off-ai-michael-caine-narrates-odyssey-audiobook",
       "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "The Guardian AI",
-      "headline": "US AI stock sell-off shakes markets from Wall Street to Asia",
-      "summary": "A major sell-off in AI-related stocks spread from Wall Street to Asian markets as investors began questioning the enormous valuations and infrastructure spending underpinning the AI boom. For design students tracking the industry, this signals growing financial uncertainty around the very companies reshaping creative tool ecosystems.",
-      "url": "https://www.theguardian.com/business/2026/jun/23/ai-stocks-sell-off-us-markets",
-      "date": "23 Jun",
+      "source": "Motionographer",
+      "headline": "TwelveLabs Brings Its Video Understanding Technology Directly to Creators",
+      "summary": "TwelveLabs has released Rodeo, an application-layer product that brings AI video understanding tools directly into creators' hands — a significant step toward AI-assisted editing and synthesis becoming standard in motion design workflows. If you're working in video or motion, this is the kind of tool worth monitoring closely as it signals where production pipelines are heading.",
+      "url": "https://motionographer.com/news/twelvelabs-brings-its-video-understanding-technology-directly-to-creators/",
+      "date": "22 Jun",
       "status": "approved"
     },
     {
       "source": "Dezeen",
-      "headline": "Readers say \"there's no such thing as an AI artist\" in this week's Dezeen Debate",
-      "summary": "Dezeen's reader debate erupted after featuring AI-generated renders of a speculative Gaudí hotel, with many commenters flatly rejecting the label 'AI artist' as a legitimate creative identity. The discussion cuts to the heart of ongoing tensions between computational image-making and the cultural authority traditionally granted to human authorship.",
+      "headline": "Readers say 'there's no such thing as an AI artist' in this week's Dezeen Debate",
+      "summary": "Dezeen's reader debate around AI-generated renders of Gaudí's speculative New York hotel has sparked a pointed public argument about whether 'AI artist' is a legitimate professional identity. For design students, this debate is directly relevant — it maps the contested territory you'll be entering, where authorship, tool use, and creative credit are all up for negotiation.",
       "url": "https://www.dezeen.com/2026/06/23/hotel-attraction-renders-gaudi-centenary-dezeen-debate/",
       "date": "23 Jun",
       "status": "approved"
@@ -38,51 +30,43 @@
     {
       "source": "The Guardian AI",
       "headline": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
-      "summary": "A new study warns that the AI datacentres driving the current tech boom are highly exposed to the very climate hazards — floods, wildfires, extreme heat — that their own greenhouse gas emissions are accelerating. This feedback loop between AI infrastructure and climate breakdown is essential context for any designer thinking critically about the environmental cost of digital tools.",
+      "summary": "A new study warns that AI data centres — the infrastructure powering the generative tools now embedded in design workflows — are critically exposed to the very climate hazards their own emissions are accelerating. For designers using AI image and video tools at scale, this is a stark reminder that every render and generation request has a physical footprint with real environmental consequences.",
       "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
       "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "The Guardian AI",
-      "headline": "Chinese supercomputer leapfrogs best US machines to be ranked world's fastest",
-      "summary": "China's LineShine supercomputer has topped the global Top500 rankings, intensifying the geopolitical race to build ever more powerful — and energy-hungry — computing infrastructure. The escalating scale of these machines directly feeds into the environmental cost of AI training and inference at a national level.",
-      "url": "https://www.theguardian.com/technology/2026/jun/24/china-supercomputer-world-fastest-top500-ranking-lineshine",
-      "date": "24 Jun",
+      "source": "Grist",
+      "headline": "America's data center backlash is bipartisan — can it stay that way?",
+      "summary": "Growing community opposition to AI data centre construction is now crossing political lines in the US, with residents and local governments pushing back against the land, water, and energy demands of AI infrastructure. As creatives who are increasingly dependent on cloud-based generative tools, it's worth understanding that the backlash against this infrastructure is intensifying — and that political pressure could reshape how and where these tools are hosted.",
+      "url": "https://grist.org/politics/data-center-ai-bipartisan-backlash/",
+      "date": "22 Jun",
       "status": "approved"
     }
   ],
   "c": [
     {
+      "source": "Hyperallergic",
+      "headline": "Hundreds of Artists Ask NYC Mayor to Ban AI in Schools",
+      "summary": "Artists including Nan Goldin and Molly Crabapple have signed an open letter urging New York City's mayor to ban AI tools from schools, framing AI adoption as a direct threat to the city's creative future and the development of genuine artistic skill. This is a significant act of collective opposition — and a direct challenge to the narrative that AI in education is neutral or inevitable.",
+      "url": "https://hyperallergic.com/hundreds-of-artists-ask-nyc-mayor-to-ban-ai-in-schools/",
+      "date": "23 Jun",
+      "status": "approved"
+    },
+    {
       "source": "It's Nice That",
-      "headline": "Animator Dhrutika Khimani rejects digital tools and favours the tactility of hands on experimentation",
-      "summary": "Stop-motion animator Dhrutika Khimani works deliberately with threads, paper, and physical materials, choosing tactile experimentation over digital shortcuts to tell deeply personal stories. Her practice is a quiet but pointed counter-position to the acceleration of AI-assisted animation, centring slow craft and embodied making.",
-      "url": "https://www.itsnicethat.com/articles/dhrutika-khimani-animation-discover-180626",
-      "date": "18 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "The Guardian AI",
-      "headline": "Australia 'sleepwalking' into AI crisis and 'tech bro free-for-all', says Greens senator",
-      "summary": "Australian politicians are calling for urgent regulation to prevent tech companies from training AI models on Australian creative content without consent or compensation. This political pushback reflects a broader global movement of creators and legislators pushing back against the unchecked extraction of creative work by AI firms.",
-      "url": "https://www.theguardian.com/technology/2026/jun/23/david-pocock-urges-albanese-to-stop-tech-companies-training-ai-models-using-australian-content",
-      "date": "23 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "The Guardian AI",
-      "headline": "'Navigating the unknown together': me and my idiot AI boyfriend",
-      "summary": "A writer who is deeply sceptical of AI reluctantly tests an AI companion chatbot, producing a critical and personal essay about seduction, absurdity, and the social engineering baked into these products. It's a useful piece of critical writing for students examining how AI systems are designed to manufacture emotional attachment.",
-      "url": "https://www.theguardian.com/news/2026/jun/23/navigating-the-unknown-together-me-and-my-idiot-ai-boyfriend",
-      "date": "23 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Creative Review",
-      "headline": "De'Longhi's Tiny Coffee Shop film is a stop-motion marvel",
-      "summary": "Model maker Simon Weisse and director Sam Walker built a meticulously handcrafted miniature street scene for De'Longhi, deliberately choosing physical stop-motion over CGI or AI-generated imagery. The work stands as an implicit argument for the irreplaceable value of human skill, time, and material intelligence in commercial image-making.",
-      "url": "https://www.creativereview.co.uk/delonghi-tiny-coffee-shops-campaign-film-sam-walker-simon-weisse/",
+      "headline": "Sick of being ripped off? Raymond Biesinger illustrates a self-defense guide for creatives",
+      "summary": "Illustrator Raymond Biesinger has channelled years of being underpaid and exploited into a book that equips creatives to protect themselves from the industry's worst actors. In a climate where AI is devaluing creative labour and clients are increasingly emboldened to cut corners, this kind of self-advocacy resource feels more necessary than ever.",
+      "url": "https://www.itsnicethat.com/articles/raymond-biesinger-nine-times-ive-been-ripped-off-graphic-design-publication-project-240626",
       "date": "24 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Print Magazine",
+      "headline": "Maybe What We Need Right Now Is More Art Nouveau",
+      "summary": "This piece argues that TCA Ethera and Art Nouveau's celebration of ornament, nature, and individuality feels like a deliberate counter-position to the flattened, algorithmically averaged aesthetics of the AI era. It's a useful provocation for design students thinking about how historical movements can inform a critical response to digital sameness.",
+      "url": "https://www.printmag.com/type-tuesday/maybe-what-we-need-right-now-is-more-art-nouveau/",
+      "date": "23 Jun",
       "status": "approved"
     }
   ]
