@@ -380,6 +380,22 @@ body {
   margin-bottom: 8px;
 }
 
+.item-image {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--c-surface);
+  aspect-ratio: 16 / 9;
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .item-url {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -759,6 +775,7 @@ function renderStrand(strand) {
     <article class="item status-${item.status}" id="item-${strand}-${i}">
       <div class="item-num">0${i+1}</div>
       <div>
+        ${item.image ? `<div class="item-image"><img src="${esc(item.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
         <div class="item-source">${esc(item.source)}</div>
         <h2 class="item-headline">${esc(item.headline)}</h2>
         <p class="item-summary">${esc(item.summary)}</p>
@@ -812,26 +829,31 @@ function loadDraftFromStorage() {
 // Default feeds — user can add more in Settings
 // ============================================================
 const DEFAULT_FEEDS = [
-  // Creative industry
-  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',                       source: "It's Nice That" },
-  { url: 'https://www.creativereview.co.uk/feed/',                               source: 'Creative Review' },
-  { url: 'https://www.dezeen.com/feed/',                                          source: 'Dezeen' },
-  { url: 'https://eyeondesign.aiga.org/feed/',                                   source: 'AIGA Eye on Design' },
-  { url: 'https://www.printmag.com/feed/',                                        source: 'Print Magazine' },
-  { url: 'https://www.creativeboom.com/feed/',                                    source: 'Creative Boom' },
-  { url: 'https://motionographer.com/feed/',                                      source: 'Motionographer' },
+  // Creative industry — design press
+  { url: 'https://feeds.feedburner.com/itsnicethat/SlXC',                        source: "It's Nice That" },
+  { url: 'https://www.creativereview.co.uk/feed/',                                source: 'Creative Review' },
+  { url: 'https://www.dezeen.com/feed/',                                           source: 'Dezeen' },
+  { url: 'https://www.dezeen.com/category/graphics/feed/',                        source: 'Dezeen Graphics' },
+  { url: 'https://www.designweek.co.uk/feed',                                     source: 'Design Week' },
+  { url: 'https://www.creativebloq.com/feed?x=1',                                 source: 'Creative Bloq' },
+  { url: 'https://www.designboom.com/feed',                                        source: 'Designboom' },
+  { url: 'https://eyeondesign.aiga.org/feed/',                                    source: 'AIGA Eye on Design' },
+  { url: 'https://www.printmag.com/feed/',                                         source: 'Print Magazine' },
+  { url: 'https://www.creativeboom.com/feed/',                                     source: 'Creative Boom' },
+  { url: 'https://motionographer.com/feed/',                                       source: 'Motionographer' },
   // Art / critical theory
-  { url: 'https://e-flux.com/rss/',                                               source: 'e-flux' },
-  { url: 'https://frieze.com/feed',                                               source: 'Frieze' },
-  { url: 'https://www.artforum.com/rss',                                          source: 'Artforum' },
-  { url: 'https://hyperallergic.com/feed/',                                       source: 'Hyperallergic' },
-  // Tech / AI industry
-  { url: 'https://www.wired.com/feed/rss',                                        source: 'Wired' },
-  { url: 'https://www.technologyreview.com/feed/',                                source: 'MIT Tech Review' },
-  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss',  source: 'The Guardian AI' },
+  { url: 'https://e-flux.com/rss/',                                                source: 'e-flux' },
+  { url: 'https://frieze.com/feed',                                                source: 'Frieze' },
+  { url: 'https://www.artforum.com/rss',                                           source: 'Artforum' },
+  { url: 'https://hyperallergic.com/feed/',                                        source: 'Hyperallergic' },
+  // AI — critical and analytical
+  { url: 'https://thegradient.pub/rss/',                                           source: 'The Gradient' },
+  { url: 'https://www.technologyreview.com/feed/',                                 source: 'MIT Tech Review' },
+  { url: 'https://www.theguardian.com/technology/artificialintelligenceai/rss',   source: 'The Guardian AI' },
+  { url: 'https://www.wired.com/feed/rss',                                         source: 'Wired' },
   // Environment
-  { url: 'https://www.theguardian.com/environment/rss',                           source: 'The Guardian Environment' },
-  { url: 'https://grist.org/feed/',                                               source: 'Grist' },
+  { url: 'https://www.theguardian.com/environment/rss',                            source: 'The Guardian Environment' },
+  { url: 'https://grist.org/feed/',                                                source: 'Grist' },
 ];
 
 function getFeeds() {
@@ -898,7 +920,7 @@ async function fetchNewContent() {
 
     // ── Step 2: send real articles to Claude for categorisation ──
     const articleList = allItems.map((item, i) =>
-      `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
+      `[${i}] SOURCE: ${item.source}\nTITLE: ${item.title}\nURL: ${item.url}\nIMAGE: ${item.image || ''}\nDATE: ${item.date}\nSNIPPET: ${item.summary.slice(0, 200)}`
     ).join('\n\n');
 
     const prompt = `You are a content curator for a BA Graphic & Media Design course resource called The Signal. Your audience is undergraduate design students studying graphic design, motion design, and visual communication.
@@ -926,7 +948,7 @@ ${articleList}
 
 Respond ONLY with valid JSON, no preamble, no markdown fences:
 {
-  "a": [{"source":"...","headline":"...","summary":"...","url":"EXACT URL FROM ABOVE","date":"..."}],
+  "a": [{"source":"...","headline":"...","summary":"...","url":"EXACT URL FROM ABOVE","image":"EXACT IMAGE URL FROM ABOVE or empty string","date":"..."}],
   "b": [...],
   "c": [...]
 }`;
