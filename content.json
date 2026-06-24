@@ -1,113 +1,88 @@
 {
-  "lastUpdated": "2026-06-23T17:02:52.461Z",
+  "lastUpdated": "2026-06-24T08:05:21.879Z",
   "a": [
     {
-      "source": "Wired",
-      "headline": "Adobe Adds Generative AI Video Tools Directly Into Premiere Pro",
-      "summary": "Adobe has integrated Firefly-powered generative video features into Premiere Pro, allowing editors to extend clips, fill gaps, and generate B-roll from text prompts. The update signals a major shift in professional post-production workflows, raising questions about the future role of motion designers and video editors.",
-      "date": "14 Jun",
+      "source": "The Guardian AI",
+      "headline": "'Who is going to pay us when we're replaced by robots?' The Indian factory workers told to film themselves for AI",
+      "summary": "Factory workers in India were asked to wear cameras and document their own movements to train AI systems that could eventually replace them — raising urgent questions about labour, consent, and who bears the cost of automation. This piece is a stark reminder that AI's disruption of work is already happening at the most vulnerable end of global supply chains.",
+      "url": "https://www.theguardian.com/global-development/2026/jun/24/indian-factory-workers-told-film-themselves-for-ai-robots",
+      "date": "24 Jun",
       "status": "approved"
     },
     {
-      "source": "The Guardian",
-      "headline": "Canva's AI Expansion Threatens Freelance Graphic Designers' Livelihoods",
-      "summary": "Canva's aggressive rollout of AI-powered design automation tools is being cited by freelancers as a direct threat to entry-level and mid-tier design work. Industry observers note that platforms democratising design through AI are simultaneously compressing the market for professional creative labour.",
-      "date": "11 Jun",
+      "source": "The Guardian AI",
+      "headline": "You're only supposed to blow the bloody hooves off: AI Michael Caine narrates Odyssey audiobook",
+      "summary": "ElevenLabs has released an officially licensed AI replica of Michael Caine's voice to narrate a retelling of Homer's Odyssey, marking a significant moment in the commercialisation of voice likeness. This raises immediate questions for designers, animators, and creative professionals about the future value of human-performed creative labour.",
+      "url": "https://www.theguardian.com/film/2026/jun/23/youre-only-supposed-to-blow-the-bloody-hooves-off-ai-michael-caine-narrates-odyssey-audiobook",
+      "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "Bloomberg",
-      "headline": "Hollywood Studios Are Quietly Replacing Concept Artists With AI Tools",
-      "summary": "Several major Hollywood production houses are reducing concept art departments in favour of AI image generation tools during pre-production phases. Artists' unions are pushing back, arguing the move undermines creative quality and eliminates entry-level pathways into the industry.",
-      "date": "10 Jun",
+      "source": "The Guardian AI",
+      "headline": "US AI stock sell-off shakes markets from Wall Street to Asia",
+      "summary": "A major sell-off in AI-related stocks spread from Wall Street to Asian markets as investors began questioning the enormous valuations and infrastructure spending underpinning the AI boom. For design students tracking the industry, this signals growing financial uncertainty around the very companies reshaping creative tool ecosystems.",
+      "url": "https://www.theguardian.com/business/2026/jun/23/ai-stocks-sell-off-us-markets",
+      "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "It's Nice That",
-      "headline": "Pentagram Partners Debate Whether AI Can Ever Replace Strategic Design Thinking",
-      "summary": "A candid internal discussion at Pentagram, reported by It's Nice That, reveals senior partners are divided on how deeply AI should be embedded in branding and identity work. While some see generative tools as useful for rapid iteration, others argue that strategic thinking and cultural nuance remain irreducibly human.",
-      "date": "13 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Fast Company",
-      "headline": "Midjourney's New Design Tool Takes Direct Aim at Professional Brand Studios",
-      "summary": "Midjourney has announced a suite of design-specific features targeting brand identity and marketing production, moving beyond image generation into territory previously owned by specialist studios. The announcement has prompted anxiety across boutique branding agencies about the commodification of visual identity work.",
-      "date": "9 Jun",
+      "source": "Dezeen",
+      "headline": "Readers say \"there's no such thing as an AI artist\" in this week's Dezeen Debate",
+      "summary": "Dezeen's reader debate erupted after featuring AI-generated renders of a speculative Gaudí hotel, with many commenters flatly rejecting the label 'AI artist' as a legitimate creative identity. The discussion cuts to the heart of ongoing tensions between computational image-making and the cultural authority traditionally granted to human authorship.",
+      "url": "https://www.dezeen.com/2026/06/23/hotel-attraction-renders-gaudi-centenary-dezeen-debate/",
+      "date": "23 Jun",
       "status": "approved"
     }
   ],
   "b": [
     {
-      "source": "The Guardian",
-      "headline": "AI Data Centres Are Pushing US Power Grids to the Brink",
-      "summary": "A new investigation reveals that the rapid buildout of AI data centres across the American South and Midwest is straining electricity infrastructure, forcing utilities to delay the retirement of coal plants. Researchers warn that the energy demand from large language model inference alone could erase years of emissions progress.",
-      "date": "12 Jun",
+      "source": "The Guardian AI",
+      "headline": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
+      "summary": "A new study warns that the AI datacentres driving the current tech boom are highly exposed to the very climate hazards — floods, wildfires, extreme heat — that their own greenhouse gas emissions are accelerating. This feedback loop between AI infrastructure and climate breakdown is essential context for any designer thinking critically about the environmental cost of digital tools.",
+      "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
+      "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "MIT Technology Review",
-      "headline": "Training a Single AI Model Can Emit as Much Carbon as Five Cars Over Their Lifetimes",
-      "summary": "Updated lifecycle analysis from MIT researchers puts fresh numbers on the carbon cost of frontier AI model training, finding that the largest runs now significantly exceed earlier estimates. The findings complicate tech companies' net-zero pledges, which rarely account transparently for Scope 3 compute emissions.",
-      "date": "8 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Wired",
-      "headline": "Microsoft's Water Consumption Surged 34% as It Scaled AI Infrastructure",
-      "summary": "Microsoft's latest environmental report quietly confirmed a sharp rise in water consumption at its data centres, driven primarily by cooling systems for AI workloads. Critics note the increase directly contradicts the company's public commitment to becoming water-positive by 2030.",
-      "date": "15 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "The Verge",
-      "headline": "Google's Clean Energy Claims Don't Add Up When You Count AI Inference",
-      "summary": "An analysis published this week challenges Google's claim to run on 100% renewable energy, pointing out that real-time AI inference draws power from grids that are far from clean at the hours of peak demand. The piece argues that tech giants are using accounting mechanisms to obscure the true fossil fuel dependency of AI services.",
-      "date": "11 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Bloomberg",
-      "headline": "A New Data Centre Boom Is Threatening Europe's Water-Stressed Regions",
-      "summary": "Bloomberg maps the accelerating construction of hyperscale AI data centres in countries including Spain, the Netherlands, and Ireland, where water stress and grid pressure are already significant. Local communities and environmental groups are beginning to mount legal and political challenges to planning approvals.",
-      "date": "6 Jun",
+      "source": "The Guardian AI",
+      "headline": "Chinese supercomputer leapfrogs best US machines to be ranked world's fastest",
+      "summary": "China's LineShine supercomputer has topped the global Top500 rankings, intensifying the geopolitical race to build ever more powerful — and energy-hungry — computing infrastructure. The escalating scale of these machines directly feeds into the environmental cost of AI training and inference at a national level.",
+      "url": "https://www.theguardian.com/technology/2026/jun/24/china-supercomputer-world-fastest-top500-ranking-lineshine",
+      "date": "24 Jun",
       "status": "approved"
     }
   ],
   "c": [
     {
-      "source": "e-flux",
-      "headline": "Against Generativity: Notes on Refusal in an Age of Synthetic Images",
-      "summary": "A newly published essay on e-flux argues that the aesthetic of endless generative output represents a form of capitalist realism embedded in image culture, and calls on artists to practise deliberate scarcity and authorial refusal. The piece has circulated widely in art school contexts as a framework for critical practice.",
-      "date": "7 Jun",
+      "source": "It's Nice That",
+      "headline": "Animator Dhrutika Khimani rejects digital tools and favours the tactility of hands on experimentation",
+      "summary": "Stop-motion animator Dhrutika Khimani works deliberately with threads, paper, and physical materials, choosing tactile experimentation over digital shortcuts to tell deeply personal stories. Her practice is a quiet but pointed counter-position to the acceleration of AI-assisted animation, centring slow craft and embodied making.",
+      "url": "https://www.itsnicethat.com/articles/dhrutika-khimani-animation-discover-180626",
+      "date": "18 Jun",
       "status": "approved"
     },
     {
-      "source": "Eye Magazine",
-      "headline": "The New Luddites: Designers Choosing Analogue Against the AI Tide",
-      "summary": "Eye profiles a loose international network of graphic designers who are consciously returning to letterpress, risograph, and hand-drawn illustration as both aesthetic and political statements against AI-driven production. The feature frames their practice not as nostalgia but as a form of resistance to the deskilling of visual labour.",
-      "date": "10 Jun",
+      "source": "The Guardian AI",
+      "headline": "Australia 'sleepwalking' into AI crisis and 'tech bro free-for-all', says Greens senator",
+      "summary": "Australian politicians are calling for urgent regulation to prevent tech companies from training AI models on Australian creative content without consent or compensation. This political pushback reflects a broader global movement of creators and legislators pushing back against the unchecked extraction of creative work by AI firms.",
+      "url": "https://www.theguardian.com/technology/2026/jun/23/david-pocock-urges-albanese-to-stop-tech-companies-training-ai-models-using-australian-content",
+      "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "Hyperallergic",
-      "headline": "Artist Collective Trains an AI on Rejection Letters to Interrogate Creative Labour",
-      "summary": "A Berlin-based collective has released a project that uses a model trained exclusively on years of arts funding rejection letters to generate new applications, exposing the bureaucratic language that gatekeeps creative work. The project doubles as a critique of both institutional power and the AI systems absorbing its logic.",
-      "date": "13 Jun",
+      "source": "The Guardian AI",
+      "headline": "'Navigating the unknown together': me and my idiot AI boyfriend",
+      "summary": "A writer who is deeply sceptical of AI reluctantly tests an AI companion chatbot, producing a critical and personal essay about seduction, absurdity, and the social engineering baked into these products. It's a useful piece of critical writing for students examining how AI systems are designed to manufacture emotional attachment.",
+      "url": "https://www.theguardian.com/news/2026/jun/23/navigating-the-unknown-together-me-and-my-idiot-ai-boyfriend",
+      "date": "23 Jun",
       "status": "approved"
     },
     {
-      "source": "The Guardian",
-      "headline": "Writers' Centres Are Building AI-Free Spaces to Protect Human Storytelling",
-      "summary": "A growing number of literary organisations in the UK and Australia are formally designating workshops, residencies, and publications as AI-free zones, positioning human authorship as something requiring active protection. Organisers describe the move as both ethical stance and practical response to the erosion of commissioned writing markets.",
-      "date": "9 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Frieze",
-      "headline": "Holly Herndon and Mat Dryhurst on Building an Ethical AI Art Practice",
-      "summary": "In a substantial new Frieze interview, Holly Herndon and Mat Dryhurst outline their ongoing work developing consent-based frameworks for AI trained on artists' voices and images. They argue that the problem is not the technology itself but the industry's refusal to build structures of attribution, permission, and compensation.",
-      "date": "5 Jun",
+      "source": "Creative Review",
+      "headline": "De'Longhi's Tiny Coffee Shop film is a stop-motion marvel",
+      "summary": "Model maker Simon Weisse and director Sam Walker built a meticulously handcrafted miniature street scene for De'Longhi, deliberately choosing physical stop-motion over CGI or AI-generated imagery. The work stands as an implicit argument for the irreplaceable value of human skill, time, and material intelligence in commercial image-making.",
+      "url": "https://www.creativereview.co.uk/delonghi-tiny-coffee-shops-campaign-film-sam-walker-simon-weisse/",
+      "date": "24 Jun",
       "status": "approved"
     }
   ]
