@@ -1,80 +1,98 @@
 {
-  "lastUpdated": "2026-06-24T10:53:28.895Z",
+  "lastUpdated": "2026-07-01T08:08:39.742Z",
   "a": [
     {
-      "source": "It's Nice That",
-      "headline": "What happens when the gap between thinking and making closes?",
-      "summary": "Seth Akkerman and Talia Cotton from studio Instrument examine how design and technology are converging, dissolving traditional discipline boundaries. A timely read for design students navigating a landscape where tools and creative thinking are becoming increasingly inseparable.",
-      "url": "https://www.itsnicethat.com/features/instrument-closing-the-gap-between-thinking-and-making-design-technology-creative-industry-partnership-240626",
-      "image": "",
-      "date": "24 Jun",
+      "source": "Design Week",
+      "headline": "Koto redesigns Stack Overflow to champion human knowledge in the AI era",
+      "summary": "As AI tools reshape how developers find answers, Koto has rebranded Stack Overflow to assert the irreplaceable value of verified human knowledge and community. This is a sharp case study in how design strategy can directly respond to the threat AI poses to existing platforms and creative ecosystems.",
+      "url": "https://www.designweek.co.uk/koto-redesigns-stack-overflow-to-champion-human-knowledge-in-the-ai-era/",
+      "image": "https://d3faj0w6aqatyx.cloudfront.net/uploads/2026/06/StackOverflow_Koto_13.png",
+      "date": "1 Jul",
       "status": "approved"
     },
     {
-      "source": "Motionographer",
-      "headline": "TwelveLabs Brings Its Video Understanding Technology Directly to Creators",
-      "summary": "TwelveLabs has launched Rodeo, a video understanding tool aimed directly at motion designers and content creators rather than enterprise clients. This signals a broader shift toward AI video analysis becoming a standard part of the motion design workflow.",
-      "url": "https://motionographer.com/news/twelvelabs-brings-its-video-understanding-technology-directly-to-creators/",
-      "image": "https://s35726.pcdn.co/wp-content/uploads/2026/06/image-700x391.png",
-      "date": "22 Jun",
+      "source": "Design Week",
+      "headline": "Going offline: The realities of running local AI in professional 3D pipelines",
+      "summary": "This hands-on piece explores what actually happens when designers try to run AI tools like ComfyUI locally rather than relying on cloud-based services. For motion and 3D designers curious about integrating AI into their workflow, it offers an honest account of the technical and practical trade-offs involved.",
+      "url": "https://www.designweek.co.uk/going-offline-the-realities-of-running-local-ai-in-professional-3d-pipelines/",
+      "image": "https://d3faj0w6aqatyx.cloudfront.net/uploads/2026/06/comfyuiscreenshot.jpg",
+      "date": "29 Jun",
       "status": "approved"
     },
     {
-      "source": "The Guardian AI",
-      "headline": "You're only supposed to blow the bloody hooves off: AI Michael Caine narrates Odyssey audiobook",
-      "summary": "ElevenLabs has produced an officially licensed AI replica of Michael Caine's voice for a new audiobook of Homer's Odyssey, raising fresh questions about voice rights and synthetic performance in creative media. For design and motion students, this is a live case study in how AI voice cloning is reshaping the audio-visual production industry.",
-      "url": "https://www.theguardian.com/film/2026/jun/23/youre-only-supposed-to-blow-the-bloody-hooves-off-ai-michael-caine-narrates-odyssey-audiobook",
-      "image": "https://i.guim.co.uk/img/media/c85fd6712ba98ee93dd81e51bff208806db2da76/1729_12_3475_2784/master/3475.jpg?width=1200&quality=85&auto=format&fit=max",
-      "date": "23 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Designboom",
-      "headline": "the digital vernacular: reframing AI as an unexpected ally for local heritage",
-      "summary": "This podcast episode explores how AI tools can be used to preserve and reinterpret local architectural and cultural heritage rather than flatten it into generic global aesthetics. It is a useful counterpoint for design students thinking critically about how generative tools can serve specificity and place.",
-      "url": "https://www.designboom.com/architecture/ai-ally-local-heritage-room-for-dreams-podcast/",
-      "image": "https://www.designboom.com/wp-content/uploads/2026/06/700-thumb-02-500x400-22b08q85r550.jpg",
-      "date": "24 Jun",
+      "source": "Creative Boom",
+      "headline": "Koto reframes Stack Overflow around the one thing AI cant replace: its community",
+      "summary": "Creative Boom examines how the Koto rebrand positions Stack Overflow as a counter-narrative to AI, arguing that human-generated, peer-verified knowledge carries a legitimacy that AI outputs cannot replicate. It is a compelling example of brand design being used to make a cultural and ethical argument in real time.",
+      "url": "https://www.creativeboom.com/news/koto-reframes-stack-overflow-around-the-one-thing-ai-cant-replace-its-community/",
+      "image": "https://www.creativeboom.com/upload/articles/56/562b839687719e92eda96ae89252ab424779d0ba_840.png",
+      "date": "30 Jun",
       "status": "approved"
     }
   ],
   "b": [
     {
+      "source": "Grist",
+      "headline": "Climate activists take on a new foe: Data centers",
+      "summary": "Organised climate groups are increasingly targeting data centres as a front line in the fight against fossil fuel dependency, framing AI infrastructure as a direct obstacle to green energy goals. For design students using generative tools daily, this piece makes the political and environmental stakes of that consumption concrete and urgent.",
+      "url": "https://grist.org/protest/climate-activists-data-centers-green-new-deal/",
+      "image": "https://grist.org/wp-content/uploads/2026/06/data-centers.jpg?quality=75&strip=all",
+      "date": "29 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Grist",
+      "headline": "Cow manure could be the next data center fuel",
+      "summary": "With data centres consuming energy at unprecedented scale, the industry is now exploring biogas from agricultural waste as a potential power source. This piece highlights how desperate and inventive the search for AI infrastructure fuel has become, raising questions about whether any solution can keep pace with demand.",
+      "url": "https://grist.org/energy/cow-manure-could-be-the-next-data-center-fuel/",
+      "image": "https://grist.org/wp-content/uploads/2026/06/data-centers.jpg?quality=75&strip=all",
+      "date": "28 Jun",
+      "status": "approved"
+    },
+    {
       "source": "The Guardian AI",
-      "headline": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
-      "summary": "A new study warns that the AI data centres driving the generative tools designers use daily are themselves acutely exposed to the floods, fires, and extreme heat their own emissions are accelerating. This feedback loop between AI infrastructure and climate risk is something every designer relying on cloud-based creative tools should understand.",
-      "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
-      "image": "https://i.guim.co.uk/img/media/beeb1b282a4c9873eb541eec6c02f74961e097c3/116_319_2911_2329/master/2911.jpg?width=1200&quality=85&auto=format&fit=max",
-      "date": "23 Jun",
+      "headline": "Creatives sound alarm on copyright as Pocock calls $50bn datacentre proposal the ultimate dirty deal",
+      "summary": "Australian creatives and politicians are pushing back hard against a government proposal to allow AI companies to mine creative content in exchange for datacentre investment and a compensation fund. This story ties AI infrastructure expansion directly to the erosion of copyright protections for artists, illustrators, and designers.",
+      "url": "https://www.theguardian.com/australia-news/2026/jul/01/australia-ai-copyright-laws-creatives-sound-alarm-albanese-government-datacentres",
+      "image": "https://i.guim.co.uk/img/media/043d3a31b778511e3f9e85b4000d0273b5b5f135/176_0_6280_5024/master/6280.jpg?width=1200&quality=85&auto=format&fit=max",
+      "date": "1 Jul",
       "status": "approved"
     }
   ],
   "c": [
     {
-      "source": "Hyperallergic",
-      "headline": "Hundreds of Artists Ask NYC Mayor to Ban AI in Schools",
-      "summary": "Hundreds of New York artists have signed a campaign demanding a two-year moratorium on AI in city schools, arguing that it undermines the development of genuine creative skill and critical thinking in young people. This organised resistance from the arts community is a significant moment of collective pushback worth tracking for any design student.",
-      "url": "https://hyperallergic.com/hundreds-of-artists-ask-nyc-mayor-to-ban-ai-in-schools/",
-      "image": "https://storage.ghost.io/c/51/f8/51f871d8-b6be-4a73-b958-0ca4fff0110a/content/images/2026/06/IMG_0179.jpeg",
-      "date": "23 Jun",
-      "status": "approved"
-    },
-    {
-      "source": "Dezeen",
-      "headline": "Readers say there's no such thing as an AI artist in this week's Dezeen Debate",
-      "summary": "Dezeen readers responded forcefully to AI-generated renders of a speculative Gaudi building, with many rejecting the label of AI artist entirely and questioning what authorship and creative intent mean in the context of generative imagery. The debate cuts directly to questions of craft, labour, and legitimacy that are central to visual communication practice.",
-      "url": "https://www.dezeen.com/2026/06/23/hotel-attraction-renders-gaudi-centenary-dezeen-debate/",
-      "image": "https://static.dezeen.com/uploads/2026/06/hotel-attraction-gaudi-thierry-lechanteur-architecture-hotels-new-york-ai-render_dezeen_2364_sq-1-411x411.jpg",
-      "date": "23 Jun",
+      "source": "Creative Boom",
+      "headline": "Cannes Lions 2026: why resonance, niche and analogue are the future of creativity",
+      "summary": "A week at Cannes Lions revealed a growing industry consensus that reach and AI-driven scale are losing ground to specificity, emotional depth, and analogue craft. For design students, this is an important signal that the most valued creative work right now is defined precisely by the qualities AI cannot replicate.",
+      "url": "https://www.creativeboom.com/insight/cannes-lions-2026-why-resonance-niche-and-analogue-are-the-future-of-creativity/",
+      "image": "https://www.creativeboom.com/upload/articles/fa/faa4a4946c8a2c11a218a668188b7670656dbc35_840.jpg",
+      "date": "30 Jun",
       "status": "approved"
     },
     {
       "source": "It's Nice That",
-      "headline": "Sick of being ripped off? Raymond Biesinger illustrates a self-defense guide for creatives",
-      "summary": "Illustrator Raymond Biesinger has turned his repeated experiences of being exploited by clients into a sharp, illustrated guide to protecting yourself in the creative industry. In an era where AI scraping and unpaid usage of creative work is accelerating, this feels like a timely act of practical resistance.",
-      "url": "https://www.itsnicethat.com/articles/raymond-biesinger-nine-times-ive-been-ripped-off-graphic-design-publication-project-240626",
+      "headline": "Do anything except whats right in front of you: Matt Dorfman on designing book covers",
+      "summary": "The New York Times Book Review art director makes a passionate case for reading every manuscript before designing its cover, and for collage and physical making as irreplaceable parts of a design process. In an era of prompt-based image generation, Dorfman offers a counter-model rooted in slow, deep, material engagement with a text.",
+      "url": "https://www.itsnicethat.com/articles/matt-dorfman-graphic-design-project-2906256",
       "image": "",
-      "date": "24 Jun",
+      "date": "29 Jun",
+      "status": "approved"
+    },
+    {
+      "source": "Creative Boom",
+      "headline": "How Kaitlin Brito protects her pure making so the paid work gets better",
+      "summary": "New Jersey illustrator Kaitlin Brito describes how maintaining a personal drawing practice with black ink pen, which commits her to every mark, keeps her creative thinking sharp and independent from commercial pressures. Her approach models a deliberate, analogue counterpoint to the speed and reversibility of AI-assisted image-making.",
+      "url": "https://www.creativeboom.com/inspiration/how-kaitlin-brito-protects-her-pure-making-so-the-paid-work-gets-better/",
+      "image": "https://www.creativeboom.com/upload/articles/07/0719ae04782bfff9e28d52f04e724a533fe1e9ca_840.jpg",
+      "date": "1 Jul",
+      "status": "approved"
+    },
+    {
+      "source": "Motionographer",
+      "headline": "When the Algorithm Becomes a Battleground: Hao Wu on TikTok Never Dies",
+      "summary": "Filmmaker Hao Wu, a former Silicon Valley insider, turns his documentary practice toward a critical examination of algorithmic power and the political stakes of platform control. This is a sharp example of a creative practitioner using their craft to interrogate the same tech systems that now underpin much of the AI image and content economy.",
+      "url": "https://motionographer.com/2026/06/30/when-the-algorithm-becomes-a-battleground-hao-wu-on-tiktok-never-dies/",
+      "image": "https://s35726.pcdn.co/wp-content/uploads/2026/06/TikTokers-outside-Supreme-Court-700x394.jpg",
+      "date": "30 Jun",
       "status": "approved"
     }
   ]
